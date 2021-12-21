@@ -79,21 +79,14 @@ bilibili live.js = type=http-response, pattern=https://api.live.bilibili.com/xli
 # > 皮皮虾 去广告和水印-(*.snssdk.com)
 Super.js = type=http-response, pattern=^https?://.*\.snssdk\.com/bds/(feed/stream|comment/cell_reply|cell/cell_comment|cell/detail|ward/list|user/favorite|user/cell_coment|user/cell_userfeed|user/publish_list), requires-body=1, max-size=-1, script-path=https://raw.githubusercontent.com/Liquor030/Sub_Ruleset/master/Script/Super.js, script-update-interval=0                       
 
-# > 酷我音乐 SVIP-(vip1.kuwo.cn)
-# > Kuwo.js = type=http-request, pattern=^https?:\/\/musicpay\.kuwo.cn\/music\.pay\?uid=\d+, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/KuWoMusicDownload.js, script-update-interval=0 
+# > 酷我音乐 SVIP-(vip1.kuwo.cn) 
 Kuwo.js = type=http-response, pattern=^https?:\/\/vip1\.kuwo\.cn\/(vip\/v2\/user\/vip|vip\/spi/mservice), requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Kuwo.js, script-update-interval=0 
-
-# > 小小影视 VIP-(*.xiaoxiao*.com)
-# > xxys.js = type=http-response, pattern=https:\/\/.*\.xiaoxiao.*\.com\/(vod\/reqplay\/|ucp/index|getGlobalData), requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/xxys.js, script-update-interval=0 
 
 # > 爱美剧 VIP-(api.bjxkhc.com)
 aimeiju.js = type=http-response, pattern=^https?:\/\/api.bjxkhc.com\/index\.php\/app\/ios\/(vod\/show|(user|vod|topic|type)\/index), requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/aimeiju.js, script-update-interval=0
 
 # > 网易蜗牛读书 VIP-(p.du.163.com)
 wnyd.js = type=http-response, pattern=^https?:\/\/p\.du\.163\.com\/gain\/readtime\/info\.json, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/wnyd.js, script-update-interval=0
-
-# > 看漫画极速版 VIP-(getuserinfo.321mh.com)
-# > kmh.js = type=http-response, pattern=^https?:\/\/getuserinfo\.321mh\.com\/app_api\/v5\/getuserinfo\/, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/kmh.js, script-update-interval=0
 
 # > 知音漫客 VIP-(getuserinfo-globalapi.zymk.cn)
 Zymh.js = type=http-response, pattern=^https://getuserinfo-globalapi.zymk.cn/app_api/v5/(getuserinfo|coin_account|getuserinfo_ticket|getcomicinfo)/, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Zymh.js, script-update-interval=0
