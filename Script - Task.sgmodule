@@ -49,13 +49,6 @@ bilibili = type=cron, cronexp=3 0 * * *, wake-system=1, timeout=20, script-path=
 # > 打开App,访问下右下角 `我的
 百度贴吧 = type=cron, cronexp=5 0 * * *, wake-system=1, timeout=20, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/BDTieBa-DailyBonus/TieBa.js, script-update-interval=0
 
-
-# ------ <zZPigle https://github.com/zZPiglet/Task/tree/master> ------
-# > 饿了么   
-# > 打开 APP, 访问下`我的`>`签到领红包`(左上角)
-# > 饿了么-打卡领红包 = type=cron, cronexp=6 0 * * *, wake-system=1, timeout=20, script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/elem/elemCheckIn.js, script-update-interval=0
-
-
 # ------ <Peng-YM https://github.com/Peng-YM/QuanX/tree/master/Tasks> ------
 # > 彩云天气
 彩云天气 = type=cron, cronexp=10 8-22/2 * * *, wake-system=1, timeout=20, script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tasks/caiyun.js, script-update-interval=0
