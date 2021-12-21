@@ -116,9 +116,6 @@ xjsp.js = type=http-response, pattern=https?:\/\/.*\.(fuli|xiang(jiao|xiang))app
 # > WPS-(account.wps.cn)
 WPS.js = type=http-response, pattern=^https?:\/\/account\.wps\.cn\/api\/users, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Wps.js, script-update-interval=0
 
-# > 大千视界-(api.mvmtv.com)
-# > dqsj.js = type=http-response, pattern=^https:\/\/api\.mvmtv\.com\/index\.php.*(c=user.*a=info|a=addr.*vid=.*), requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/dqsj.js, script-update-interval=0
-
 # > JibJab 解锁pro-(origin-prod-phoenix.jibjab.com)
 jibjab.js = type=http-response, pattern=https:\/\/origin-prod-phoenix\.jibjab\.com\/v1\/user, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/jibjab.js, script-update-interval=0
 
