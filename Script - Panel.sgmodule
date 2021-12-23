@@ -5,11 +5,11 @@
 [Panel]
 # PanelA = title=已完成订阅制解锁, content=感谢您回到Surge\n尊贵的Surge Pro用户, style=good
 
-# 节假日查询
-timecard = script-name=timecard, update-interval=3600
-
 # Surge Pro标题,可显示启动时间,点击刷新为重载配置
 SurgePro_ReloadProfile = script-name=SurgePro_ReloadProfile, update-interval=1
+
+# 节假日查询
+timecard = script-name=timecard, update-interval=3600
 
 # YouTube Premium 查询
 youtube_premium_check = script-name=youtube_premium_check, title="YouTube Premium 解锁检测", update-interval=3600
