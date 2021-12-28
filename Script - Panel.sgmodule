@@ -75,7 +75,7 @@ net-info-panel.js = script-path=https://raw.githubusercontent.com/Nebulosa-Cat/S
 Sub_info = type = generic, timeout=10, script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info_panel.js, script-update-interval=0, argument=url=https%3A%2F%2Fwww.greenhouseplaza.com%2FdownloadConfig%2FNodeList.aspx%3Furk%3D4e97a26c-460b-4166-a06c-341a9212fc04&reset_day=27&title=Nexitally&icon=bolt.horizontal.icloud.fill&color=#008000
 
 # 机场流量信息（ARK）
-Sub_info_01 = type = generic, timeout=10, script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info_panel.js, script-update-interval=0, argument=url=https%3A%2F%2Farkdy.com%2Flink%2FS66tnFXYlBEGZpWc%3Fsub%3D2&reset_day=23&title=ARK&icon=bolt.horizontal.icloud.fill&color=#008000
+Sub_info_01 = type = generic, timeout=10, script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info_panel.js, script-update-interval=0, argument=url=https%3A%2F%2Farkdy.com%2Flink%2FS66tnFXYlBEGZpWc%3Fsub%3D2&reset_day=23&expire=2022-03-23&title=ARK&icon=bolt.horizontal.icloud.fill&color=#008000
 
 
 [Host]
