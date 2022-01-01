@@ -1,6 +1,6 @@
 #!name=Script - Panel
 #!desc=Panel,自定义一个或多个信息面板显示相关的信息
-#!system=ios
+
 
 [Panel]
 # PanelA = title=已完成订阅制解锁, content=感谢您回到Surge\n尊贵的Surge Pro用户, style=good
