@@ -68,7 +68,7 @@ disney_check = type=generic, script-path=https://gist.githubusercontent.com/Hyse
 # TrafficStatistics = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/trafficstatistics.js, argument=icon=arrow.up.arrow.down.circle&color=#5d84f8
 
 # 电信流量统计
-ChinaTelecom = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/telecom.js, pattern=https://e.189.cn/store/user/package_detail.do, requires-body=1, max-size=0, timeout=10
+ChinaTelecom = type=generic, script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/telecom.js, pattern=https://e.189.cn/store/user/package_detail.do, requires-body=1, max-size=0, timeout=10
 
 
 # Surge 网络信息面板
