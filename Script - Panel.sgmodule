@@ -28,7 +28,7 @@ disney_check = script-name=disney_check, title=Disney+ 解锁检测, style=alert
 # TrafficStatistics = script-name=TrafficStatistics, update-interval=1
 
 # 电信流量统计 
-ChinaTelecom = script-name=ChinaTelecom, title=电信流量统计, content=请刷新, update-interval=3600
+ChinaTelecom = script-name=ChinaTelecom, update-interval=3600
 
 # Surge 网络信息面板 
 # net-info-panel = title="网络状态", content="请刷新", style=info, script-name=net-info-panel, update-interval=1
