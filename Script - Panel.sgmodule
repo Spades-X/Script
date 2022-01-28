@@ -86,4 +86,4 @@ Sub_info_01 = type = generic, timeout=10, script-path=https://raw.githubusercont
 
 
 [Host]
-ip-api.com = %APPEND%, 208.95.112.1, e.189.cn:443
+ip-api.com = %APPEND% 208.95.112.1, e.189.cn:443
