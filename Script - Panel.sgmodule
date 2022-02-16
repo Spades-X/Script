@@ -12,7 +12,7 @@ SurgePro_ReloadProfile = script-name=SurgePro_ReloadProfile, update-interval=1
 timecard = script-name=timecard, update-interval=3600
 
 # 电信流量统计 
-ChinaTelecom = script-name=ChinaTelecom, update-interval=3600
+# ChinaTelecom = script-name=ChinaTelecom, update-interval=3600
 
 # 新冠疫情查询
 # covid19 = script-name=covid19, title=新冠疫情查询, content=请刷新, update-interval=600
@@ -52,7 +52,7 @@ SurgePro_ReloadProfile = type=generic, timeout=10, script-path= https://raw.gith
 timecard = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/smartmimi/conf/master/surge/timecard.js
 
 # 电信流量统计
-ChinaTelecom = type=generic, script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/telecom.js, pattern=https://e.189.cn/store/user/package_detail.do, requires-body=1, max-size=0, timeout=10
+# ChinaTelecom = type=generic, script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/telecom.js, pattern=https://e.189.cn/store/user/package_detail.do, requires-body=1, max-size=0, timeout=10
 
 # 新冠疫情查询
 # covid19 = type=generic, script-path=https://raw.githubusercontent.com/Spades-X/Script/main/Covid19.js
@@ -86,8 +86,8 @@ Sub_info_01 = type = generic, timeout=10, script-path=https://raw.githubusercont
 
 
 [Host]
-ip-api.com = 208.95.112.1
+# ip-api.com = 208.95.112.1
 
 
 [MITM]
-hostname = %APPEND% e.189.cn:443
+# hostname = %APPEND% e.189.cn:443
