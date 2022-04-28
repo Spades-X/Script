@@ -1,5 +1,5 @@
 /**
- * @author Helge_0x00
+ * 修改自@author Helge_0x00
  *
  * [Panel]
  * disney_check = script-name=disney_check,title=Disney+ 解锁检测,style=alert,content=请刷新面板,update-interval=1800
