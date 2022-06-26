@@ -24,8 +24,8 @@ URL-REGEX, https://api.zhihu.com/(ad|drama|fringe|commercial|market/popover|sear
 AND, ((USER-AGENT,ZhihuHybrid*), (URL-REGEX,.*recommend)), REJECT
 
 # > 哔哩哔哩 精简&去广告
-URL-REGEX, https://app.bilibili.com/x/v2/(splash|search/(defaultword|square)), REJECT
-URL-REGEX, https://api.bilibili.com/x/v2/dm/ad, REJECT
+# URL-REGEX, https://app.bilibili.com/x/v2/(splash|search/(defaultword|square)), REJECT
+# URL-REGEX, https://api.bilibili.com/x/v2/dm/ad, REJECT
 
 
 [URL Rewrite]
