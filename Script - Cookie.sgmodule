@@ -15,7 +15,7 @@
 
 # > 腾讯视频-(*.video.qq.com)
 腾讯视频 Cookie = type=http-request, pattern=^https:\/\/access.video.qq.com\/user\/auth_refresh, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/videoqq/videoqq.cookie.js, script-update-interval=0
-
+                  
 # > 芒果tv-(credits.bz.mgtv.com)
 芒果tv Cookie = type=http-request, pattern=^https:\/\/credits.bz.mgtv.com\/user\/creditsTake, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/mgtv/mgtv.cookie.js, script-update-interval=0
 
