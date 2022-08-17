@@ -134,5 +134,10 @@ PicsArt.js = type=http-response, pattern=https:\/\/api\.(picsart|meiease)\.c(n|o
 Splice.js = type=http-response, pattern=https:\/\/splice\.oracle\.\w+\.com\/devices\/me, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/NobyDa/Surge/JS/Splice.js, script-update-interval=0
 
 
+# ------ <I-am-R-E https://github.com/I-am-R-E/Functional-Store-Hub> ------
+# > Xmind思维导图-(www.xmind.cn, www.xmind.net)
+Xmind思维导图 = type=http-response, pattern=https?:\/\/www\.xmind\.(cn|net)\/\_res\/devices, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/I-am-R-E/Functional-Store-Hub/Master/Xmind/Script/Xmind.js, script-update-interval=0
+
+
 [MITM]
-hostname = %APPEND% *.amemv.com, api.rr.tv, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, www.zhihu.com, api.zhihu.com, link.zhihu.com, 118.89.204.198, api.bilibili.com, app.bilibili.com, api.live.bilibili.com, *.snssdk.com, vip1.kuwo.cn, *.xiaoxiao*.com, api.bjxkhc.com, p.du.163.com, getuserinfo.321mh.com, getuserinfo-globalapi.zymk.cn, vsco.co, api.vnision.com, *.my10api.com, ios.fuliapps.com, apple.fuliapps.com, ios.xiangjiaoapps.com, apple.xiangjiaoapps.com, *.xiangxiangapps.com, newdrugs.dxy.cn, account.wps.cn, api.mvmtv.com, origin-prod-phoenix.jibjab.com, api.termius.com, viva.v21xy.com, ap*.intsig.net, api.vuevideo.net, mp.bybutter.com, api.picsart.c*, api.meiease.c*, splice.oracle.*.com 
+hostname = %APPEND% *.amemv.com, api.rr.tv, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, www.zhihu.com, api.zhihu.com, link.zhihu.com, 118.89.204.198, api.bilibili.com, app.bilibili.com, api.live.bilibili.com, *.snssdk.com, vip1.kuwo.cn, *.xiaoxiao*.com, api.bjxkhc.com, p.du.163.com, getuserinfo.321mh.com, getuserinfo-globalapi.zymk.cn, vsco.co, api.vnision.com, *.my10api.com, ios.fuliapps.com, apple.fuliapps.com, ios.xiangjiaoapps.com, apple.xiangjiaoapps.com, *.xiangxiangapps.com, newdrugs.dxy.cn, account.wps.cn, api.mvmtv.com, origin-prod-phoenix.jibjab.com, api.termius.com, viva.v21xy.com, ap*.intsig.net, api.vuevideo.net, mp.bybutter.com, api.picsart.c*, api.meiease.c*, splice.oracle.*.com, www.xmind.cn, www.xmind.net 
