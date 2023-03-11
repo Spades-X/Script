@@ -6,9 +6,6 @@
 
 [Script]
 # ------ <chavyleung https://github.com/chavyleung/scripts> ------
-# > 中国电信-(e.189.cn, open.e.189.cn)
-# 中国电信 Cookie = type=http-request, pattern=^https:\/\/(e\.189\.cn\/store\/user|open\.e\.189\.cn\/api\/logbox\/oauth2\/loginSubmit\.do), requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/get_10000_cookie.js, script-update-interval=0
-
 # > 腾讯视频-(*.video.qq.com)
 腾讯视频 Cookie = type=http-request, pattern=^https:\/\/access.video.qq.com\/user\/auth_refresh, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/videoqq/videoqq.cookie.js, script-update-interval=0
                   
@@ -31,4 +28,4 @@
 
 
 [MITM]
-hostname = %APPEND% e.189.cn, open.e.189.cn, *.video.qq.com, passport.iqiyi.com, e.189.cn, mkt.21cn.com, auth.aliyundrive.com         
+hostname = %APPEND% *.video.qq.com, passport.iqiyi.com, e.189.cn, mkt.21cn.com, auth.aliyundrive.com         
