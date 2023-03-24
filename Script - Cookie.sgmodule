@@ -11,6 +11,9 @@
                   
 
 # ------ <Nobyda https://github.com/NobyDa/Script/tree/master> ------
+# > 京东-(api.m.jd.com)
+京东 Cookie = type=http-request, pattern=https:\/\/api\.m\.jd\.com\/client\.action.*functionId=signBean, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js, script-update-interval=0
+
 # > 爱奇艺-(passport.iqiyi.com)
 爱奇艺 Cookie = type=http-request, pattern=^https:\/\/passport\.iqiyi\.com\/apis\/user\/, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/iQIYI-DailyBonus/iQIYI.js, script-update-interval=0
 
@@ -28,4 +31,4 @@
 
 
 [MITM]
-hostname = %APPEND% *.video.qq.com, passport.iqiyi.com, e.189.cn, mkt.21cn.com, auth.aliyundrive.com         
+hostname = %APPEND% *.video.qq.com, api.m.jd.com, passport.iqiyi.com, e.189.cn, mkt.21cn.com, auth.aliyundrive.com         
