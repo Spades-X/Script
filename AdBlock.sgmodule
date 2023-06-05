@@ -1,0 +1,7 @@
+#!name=AdBlock
+#!desc=AdBlock
+
+
+[Rule]
+DOMAIN-SUFFIX, 087296.cc, REJECT
+DOMAIN-SUFFIX, kvdekme.cn, REJECT
