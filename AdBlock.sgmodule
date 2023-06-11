@@ -1,6 +1,5 @@
 #!name=AdBlock
-#!desc=AdBlock
-
+#!desc=去除网页广告和跳转
 
 [Rule]
 DOMAIN-SUFFIX, 087296.cc, REJECT
