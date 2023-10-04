@@ -3,7 +3,7 @@
 
 
 [Rule]
-# > m.diyibanzhu.me
+# > (https://m.diyibanzhu.me/)
 DOMAIN-SUFFIX, 087296.cc, REJECT
 DOMAIN-SUFFIX, kvdekme.cn, REJECT
 DOMAIN-SUFFIX, j0l09.xyz, REJECT
@@ -38,3 +38,27 @@ DOMAIN-SUFFIX, kguapp.com, REJECT
 URL-REGEX, ^http:\/\/ocsp\.pki\.goog\/gts1c3\/MFAwTjBMMEowSDAHBgUrDgMCGgQUxy55it3%2FYTSzuu1HQri7xsAkB2MEFIp0f6%2BFze6VzT2c0OJGFPNxNR0nAhEA71s3jSBzyOQJyIxeEjHUeg%3D%3D$, REJECT 
 URL-REGEX, ^http:\/\/mail\.kguapp\.com\/ah\/\?r=1687796915687&pt=2&ag=4954&c=1&h=100&x=187&y=684&v=912$, REJECT 
 
+# > (https://18comic.vip/)
+DOMAIN-SUFFIX, xhg270.com, REJECT 
+DOMAIN-SUFFIX, xxjj.buzz, REJECT 
+DOMAIN-SUFFIX, opgaming.xyz, REJECT 
+DOMAIN-SUFFIX, morexpbb.net, REJECT 
+DOMAIN-SUFFIX, tsyndicate.com, REJECT 
+DOMAIN-SUFFIX, 51240.com, REJECT 
+DOMAIN-SUFFIX, bmcx.com, REJECT 
+DOMAIN-SUFFIX, vvhan.com, REJECT 
+DOMAIN-SUFFIX, dhxj2.online, REJECT 
+DOMAIN-SUFFIX, lby2kd27c.com, REJECT 
+DOMAIN-SUFFIX, magsrv.com, REJECT 
+
+
+
+
+[Script]
+禁漫天堂(18comic.org|vip) = type=http-response , pattern="^https?:\/\/18comic\.(vip|org)\/(?!(.*(onclick|cdn-cgi|\.))).*" , requires-body=1 , max-size=0 , script-path=https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adguard/Adblock4limbo.js , script-update-interval=0
+
+
+
+
+[MITM]
+hostname = %APPEND% 18comic.org, 18comic.vip
