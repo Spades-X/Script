@@ -1,40 +1,6 @@
-#!name=Script - All in one
-#!desc=该模块为脚本合集, 用于Remove Ads + unlock vip @Spades-X
+#!name=Script - Vip
+#!desc=Vip @Spades-X
 
-
-[Rule]
-# ------ <Choler https://github.com/Choler> ------
-# > 人人视频 去广告
-AND, ((USER-AGENT,PUClient*), (NOT,((DOMAIN-SUFFIX,rr.tv)))), REJECT
-URL-REGEX, ^https?:\/\/api\.rr\.tv\/(?:ad\/getAll$|storage/business/rootName/app/homePage), REJECT
-
-# ------ <onewayticket255 https://github.com/onewayticket255/Surge-Script> ------
-# > 知乎 去广告
-//SOME MCN INFO MAY BE USEFUL
-//URL-REGEX, https://www.zhihu.com/api/v4/mcn/, REJECT
-
-DOMAIN, appcloud2.zhihu.com, REJECT
-
-//DO NOT GET CDN-BASED IP
-DOMAIN, 118.89.204.198, REJECT
-
-USER-AGENT,AVOS*,REJECT
-URL-REGEX, https://api.zhihu.com/(ad|drama|fringe|commercial|market/popover|search/(top|preset|tab)|.*featured-comment-ad), REJECT
-AND, ((USER-AGENT,ZhihuHybrid*), (URL-REGEX,.*recommend)), REJECT
-
-# > 哔哩哔哩 精简&去广告
-# URL-REGEX, https://app.bilibili.com/x/v2/(splash|search/(defaultword|square)), REJECT
-# URL-REGEX, https://api.bilibili.com/x/v2/dm/ad, REJECT
-
-
-[URL Rewrite]
-# ------ <Choler https://github.com/Choler> ------
-# > 抖音 去广告
-^https?:\/\/(.*)\.amemv\.com\/aweme\/v2\/(follow\/)?feed\/ https://$1.amemv.com/aweme/v1/$2feed/ header
-
-# ------ <NobyDa https://github.com/NobyDa/Script/tree/master> ------
-# > 皮皮虾 去广告和水印
-app_name=super&([\S]*)aid=\d+ app_name=super_pro&$1aid=1412 header
 
 
 [Script]
