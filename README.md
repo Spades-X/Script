@@ -10,37 +10,6 @@
 
 * 只测试自用脚本，其他大部分脚本未测试可用性
 
-* 由于精力原因，二者不是同时更新，优先更新surge的脚本，但可以使用©𝐒𝐡𝐚𝐰𝐧大佬的解析器来使用surge的脚本
-
-* [©𝐒𝐡𝐚𝐰𝐧](https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/resource-parser.js)
-
-### surge脚本订阅 ：
-
-* [北纬37度的大飛的视频教程](https://www.youtube.com/channel/UCXdlywuMV_a8jEZ4wV6669g)
-
-* [Script.sgmodule](https://raw.githubusercontent.com/Spades-2/Script/main/Surge/Script.sgmodule)
-
-* [Script-Price.sgmodule](https://raw.githubusercontent.com/Spades-2/Script/main/Surge/Script-Price.sgmodule)
-
-* [Script-Task.sgmodule](https://raw.githubusercontent.com/Spades-2/Script/main/Surge/Script-Task.sgmodule)
-
-* [Script-Cookie.sgmodule](https://raw.githubusercontent.com/Spades-2/Script/main/Surge/Script-Cookie.sgmodule)
-
-### Quantumult-x脚本订阅 ：
-
-* [Hell Cell的视频教程](https://www.youtube.com/channel/UCgjdfJbXYaFfC3Wxump37Mg)
-
-* [北纬37度的大飛的视频教程](https://www.youtube.com/channel/UCXdlywuMV_a8jEZ4wV6669g)
-
-* [JS.conf](https://raw.githubusercontent.com/Spades-2/Script/main/Quantumult-X/JS.conf)
-
-* [Price-JS.conf](https://raw.githubusercontent.com/Spades-2/Script/main/Quantumult-X/Price-JS.conf)
-
-* Cookie建议使用以下两位大佬 （二选一）
-
-* [JS_GetCookie.conf（Orz-3）](https://raw.githubusercontent.com/Orz-3/QuantumultX/master/JS_GetCookie.conf)
-
-* [js_cookie.conf（w37fhy）](https://raw.githubusercontent.com/w37fhy/QuantumultX/master/js_cookie.conf)
 
 ## 免责声明 ：
 
