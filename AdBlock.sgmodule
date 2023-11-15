@@ -4,62 +4,53 @@
 
 [Rule]
 # > (https://m.diyibanzhu.me/)
-DOMAIN-SUFFIX, 087296.cc, REJECT
-DOMAIN-SUFFIX, kvdekme.cn, REJECT
-DOMAIN-SUFFIX, j0l09.xyz, REJECT
-DOMAIN-SUFFIX, ym5577.com, REJECT
-DOMAIN-SUFFIX, jsyunmy.com, REJECT
-DOMAIN-SUFFIX, zhenzhao1.cn, REJECT
-DOMAIN-SUFFIX, eyqjezr.cn, REJECT
-DOMAIN-SUFFIX, haodu123.cn, REJECT
-DOMAIN-SUFFIX, g4jfuw.xyz, REJECT
-DOMAIN-SUFFIX, hvdrnzg.cn, REJECT
-DOMAIN-SUFFIX, slei7c.xyz, REJECT
-DOMAIN-SUFFIX, ym11111.com, REJECT
-DOMAIN-SUFFIX, ym22222.com, REJECT
-DOMAIN-SUFFIX, ym9933.com, REJECT
-DOMAIN-SUFFIX, fl209.com, REJECT
-DOMAIN-SUFFIX, ymshwh.xyz, REJECT
-DOMAIN-SUFFIX, ym6611.com, REJECT
-DOMAIN-SUFFIX, ozrxsa.com, REJECT
-DOMAIN-SUFFIX, 3v7c7v.online, REJECT
-DOMAIN-SUFFIX, c0hbkt.xyz, REJECT
-DOMAIN-SUFFIX, n5yrs.shop, REJECT
-DOMAIN-SUFFIX, openinstall.io, REJECT
-DOMAIN-SUFFIX, bb9876.xyz, REJECT
-DOMAIN-SUFFIX, aff006.live, REJECT
-DOMAIN-SUFFIX, poizzy.xyz, REJECT 
-DOMAIN-SUFFIX, 86368.xyz, REJECT 
-DOMAIN-SUFFIX, zhijiedu.com, REJECT 
-DOMAIN-SUFFIX, dai2f.com, REJECT 
-DOMAIN-SUFFIX, e1ce8b.xyz, REJECT 
-DOMAIN-SUFFIX, pki.goog, REJECT 
-DOMAIN-SUFFIX, kguapp.com, REJECT  
-DOMAIN-SUFFIX, xfztgxt.com, REJECT  
+DOMAIN-SUFFIX, 087296.cc, REJECT, extended-matching
+DOMAIN-SUFFIX, kvdekme.cn, REJECT, extended-matching
+DOMAIN-SUFFIX, j0l09.xyz, REJECT, extended-matching
+DOMAIN-SUFFIX, ym5577.com, REJECT, extended-matching
+DOMAIN-SUFFIX, jsyunmy.com, REJECT, extended-matching
+DOMAIN-SUFFIX, zhenzhao1.cn, REJECT, extended-matching
+DOMAIN-SUFFIX, eyqjezr.cn, REJECT, extended-matching
+DOMAIN-SUFFIX, haodu123.cn, REJECT, extended-matching
+DOMAIN-SUFFIX, g4jfuw.xyz, REJECT, extended-matching
+DOMAIN-SUFFIX, hvdrnzg.cn, REJECT, extended-matching
+DOMAIN-SUFFIX, slei7c.xyz, REJECT, extended-matching
+DOMAIN-SUFFIX, ym11111.com, REJECT, extended-matching
+DOMAIN-SUFFIX, ym22222.com, REJECT, extended-matching
+DOMAIN-SUFFIX, ym9933.com, REJECT, extended-matching
+DOMAIN-SUFFIX, fl209.com, REJECT, extended-matching
+DOMAIN-SUFFIX, ymshwh.xyz, REJECT, extended-matching
+DOMAIN-SUFFIX, ym6611.com, REJECT, extended-matching
+DOMAIN-SUFFIX, ozrxsa.com, REJECT, extended-matching
+DOMAIN-SUFFIX, 3v7c7v.online, REJECT, extended-matching
+DOMAIN-SUFFIX, c0hbkt.xyz, REJECT, extended-matching
+DOMAIN-SUFFIX, n5yrs.shop, REJECT, extended-matching
+DOMAIN-SUFFIX, openinstall.io, REJECT, extended-matching
+DOMAIN-SUFFIX, bb9876.xyz, REJECT, extended-matching
+DOMAIN-SUFFIX, aff006.live, REJECT, extended-matching
+DOMAIN-SUFFIX, poizzy.xyz, REJECT, extended-matching
+DOMAIN-SUFFIX, 86368.xyz, REJECT, extended-matching
+DOMAIN-SUFFIX, zhijiedu.com, REJECT, extended-matching 
+DOMAIN-SUFFIX, dai2f.com, REJECT, extended-matching
+DOMAIN-SUFFIX, e1ce8b.xyz, REJECT, extended-matching 
+DOMAIN-SUFFIX, pki.goog, REJECT, extended-matching 
+DOMAIN-SUFFIX, kguapp.com, REJECT, extended-matching  
+DOMAIN-SUFFIX, xfztgxt.com, REJECT, extended-matching  
 URL-REGEX, ^http:\/\/ocsp\.pki\.goog\/gts1c3\/MFAwTjBMMEowSDAHBgUrDgMCGgQUxy55it3%2FYTSzuu1HQri7xsAkB2MEFIp0f6%2BFze6VzT2c0OJGFPNxNR0nAhEA71s3jSBzyOQJyIxeEjHUeg%3D%3D$, REJECT 
 URL-REGEX, ^http:\/\/mail\.kguapp\.com\/ah\/\?r=1687796915687&pt=2&ag=4954&c=1&h=100&x=187&y=684&v=912$, REJECT 
 
 # > (https://18comic.vip/)
-DOMAIN-SUFFIX, xhg270.com, REJECT 
-DOMAIN-SUFFIX, xxjj.buzz, REJECT 
-DOMAIN-SUFFIX, opgaming.xyz, REJECT 
-DOMAIN-SUFFIX, morexpbb.net, REJECT 
-DOMAIN-SUFFIX, tsyndicate.com, REJECT 
-DOMAIN-SUFFIX, 51240.com, REJECT 
-DOMAIN-SUFFIX, bmcx.com, REJECT 
-DOMAIN-SUFFIX, vvhan.com, REJECT 
-DOMAIN-SUFFIX, dhxj2.online, REJECT 
-DOMAIN-SUFFIX, lby2kd27c.com, REJECT 
-DOMAIN-SUFFIX, magsrv.com, REJECT 
+DOMAIN-SUFFIX, xhg270.com, REJECT, extended-matching 
+DOMAIN-SUFFIX, xxjj.buzz, REJECT, extended-matching
+DOMAIN-SUFFIX, opgaming.xyz, REJECT, extended-matching 
+DOMAIN-SUFFIX, morexpbb.net, REJECT, extended-matching
+DOMAIN-SUFFIX, tsyndicate.com, REJECT, extended-matching
+DOMAIN-SUFFIX, 51240.com, REJECT, extended-matching 
+DOMAIN-SUFFIX, bmcx.com, REJECT, extended-matching
+DOMAIN-SUFFIX, vvhan.com, REJECT, extended-matching
+DOMAIN-SUFFIX, dhxj2.online, REJECT, extended-matching 
+DOMAIN-SUFFIX, lby2kd27c.com, REJECT, extended-matching
+DOMAIN-SUFFIX, magsrv.com, REJECT, extended-matching
 
 
 
-
-[Script]
-禁漫天堂(18comic.org|vip) = type=http-response , pattern="^https?:\/\/18comic\.(vip|org)\/(?!(.*(onclick|cdn-cgi|\.))).*" , requires-body=1 , max-size=0 , script-path=https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adguard/Adblock4limbo.js , script-update-interval=0
-
-
-
-
-[MITM]
-hostname = %APPEND% 18comic.org, 18comic.vip
