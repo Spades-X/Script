@@ -1,4 +1,4 @@
-# Script-Surge(脚本收集并整合)
+# Script-Surge
 
 # 所有内容均来自互联网 不确保可用性
 
