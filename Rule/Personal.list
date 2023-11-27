@@ -1,15 +1,14 @@
 # > Apple 地图
-DOMAIN-SUFFIX, ls.apple.com, 🎯 𝐷𝑖𝑟𝑒𝑐𝑡, extended-matching // Apple 地图
+DOMAIN-SUFFIX, ls.apple.com
 
 # > 1Passsword
-DOMAIN-SUFFIX, 1password.com, 🎯 𝐷𝑖𝑟𝑒𝑐𝑡, extended-matching // 1Passsword
+DOMAIN-SUFFIX, 1password.com
 
 # > Jable
-DOMAIN-SUFFIX, jable.tv, 🧭 𝐹𝑖𝑛𝑎𝑙, extended-matching // Jable
+DOMAIN-SUFFIX, jable.tv
 
 # > Javbus
-DOMAIN-SUFFIX, javbus.com, 🧭 𝐹𝑖𝑛𝑎𝑙, extended-matching // Javbus
+DOMAIN-SUFFIX, javbus.com
 
 # > FANZA
-DOMAIN-SUFFIX, dmm.co.jp, 🧭 𝐹𝑖𝑛𝑎𝑙, extended-matching // FANZA
-
+DOMAIN-SUFFIX, dmm.co.jp
