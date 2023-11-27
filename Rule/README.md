@@ -35,7 +35,7 @@ Personal规则由个人在日常使用过程中需要单独分流的规则。
 
 ### 感谢
 
-[@fiiir](https://github.com/fiiir) [@Tartarus2014](https://github.com/Tartarus2014) [@zjcfynn](https://github.com/zjcfynn) [@chenyiping1995](https://github.com/chenyiping1995) [@vhdj](https://github.com/vhdj)
+[@blackmatrix7]((https://github.com/blackmatrix7))
 
 提供规则数据源及改进建议。
 
