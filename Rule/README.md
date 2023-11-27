@@ -35,7 +35,7 @@ Personal规则由个人在日常使用过程中需要单独分流的规则。
 
 ### 感谢
 
-[@blackmatrix7]((https://github.com/blackmatrix7))
+[@blackmatrix7](https://github.com/blackmatrix7)
 
 提供规则数据源及改进建议。
 
