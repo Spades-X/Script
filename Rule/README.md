@@ -19,12 +19,12 @@ Personal规则由个人在日常使用过程中需要单独分流的规则。
 
 #### 使用说明
 - Personal.list，请使用RULE-SET。
+- AdBlock.list，请使用RULE-SET。
 
 #### 配置建议
 - Personal.list 单独使用。
+- AdBlock.list 单独使用。
 
-
-感谢以上规则作者的辛勤付出（排名不分先后）。
 
 ## 最后
 
