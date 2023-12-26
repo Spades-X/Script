@@ -58,7 +58,7 @@ stream-all = type=generic, timeout=15, script-path=https://raw.githubusercontent
 
 
 # ------ <GetSomeCats https://raw.githubusercontent.com/getsomecat/GetSomeCats> ------
-ChatGPT = type=generic, timeout=6, script-path=https://raw.githubusercontent.com/getsomecat/GetSomeCats/Surge/modules/Panel/CFGPT/CFGPT_2.js, argument=icon=lasso.and.sparkles&iconerr=xmark.seal.fill&icon-color=#336FA9&iconerr-color=#D65C51
+ChatGPT = type=generic, timeout=6, script-path=https://raw.githubusercontent.com/getsomecat/GetSomeCats/Surge/modules/Panel/CFGPT/CFGPT_2_nowarp.js, argument=icon=lasso.and.sparkles&iconerr=xmark.seal.fill&icon-color=#336FA9&iconerr-color=#D65C51
 
 
 # ------ <Nebulosa-Cat https://github.com/Nebulosa-Cat/Surge> ------
