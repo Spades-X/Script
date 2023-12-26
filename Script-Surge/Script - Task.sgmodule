@@ -7,7 +7,7 @@
 # > 腾讯视频
 # > 1.手机浏览器访问下: https://film.qq.com/ 随便选 1 部电影观看
 # > 2.手机浏览器访问下: http://v.qq.com/x/bu/mobile_checkin 页面提示提示签到成功, 系统提示: 获取Cookie: 成功 （为保成功率，请刷新一下页面再获取一次）
-腾讯视频 = type=cron, cronexp=4 0 * * *, wake-system=1, timeout=20, script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/videoqq/videoqq.js, script-update-interval=0
+# 腾讯视频 = type=cron, cronexp=4 0 * * *, wake-system=1, timeout=20, script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/videoqq/videoqq.js, script-update-interval=0
 
 
 # ------ <Nobyda https://github.com/NobyDa/Script/tree/master> ------
