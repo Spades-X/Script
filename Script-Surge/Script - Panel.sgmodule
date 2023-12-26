@@ -22,6 +22,10 @@ timecard = script-name=timecard, update-interval=3600
 stream-all = script-name=stream-all, title="流媒体解锁检测", content="请刷新面板", update-interval=-1
 
 
+# ------ <GetSomeCats https://raw.githubusercontent.com/getsomecat/GetSomeCats> ------
+ChatGPT = script-name=ChatGPT, update-interval=-1
+
+
 # ------ <Nebulosa-Cat https://github.com/Nebulosa-Cat/Surge> ------
 # > Surge 网络信息面板
 NetInfoPanel = title="网络状态", content="请刷新", style=info, script-name=net-info-panel.js, update-interval=1
@@ -51,6 +55,10 @@ timecard = type=generic, timeout=10, script-path=https://raw.githubusercontent.c
 # ------ <LucaLin233 https://github.com/LucaLin233> ------
 # > 流媒体解锁检测合并版
 stream-all = type=generic, timeout=15, script-path=https://raw.githubusercontent.com/LucaLin233/Luca_Conf/main/Surge/JS/stream-all.js
+
+
+# ------ <GetSomeCats https://raw.githubusercontent.com/getsomecat/GetSomeCats> ------
+ChatGPT = type=generic, timeout=6, script-path=https://raw.githubusercontent.com/getsomecat/GetSomeCats/Surge/modules/Panel/CFGPT/CFGPT_2.js, argument=icon=lasso.and.sparkles&iconerr=xmark.seal.fill&icon-color=#336FA9&iconerr-color=#D65C51
 
 
 # ------ <Nebulosa-Cat https://github.com/Nebulosa-Cat/Surge> ------
