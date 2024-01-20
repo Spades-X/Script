@@ -1,5 +1,8 @@
 #!name=Script - Emby Premiere
-#!desc=Emby Premiere @Spades-X
+#!desc=Emby Premiere
+#!category=Spades-X
+
+
 
 [Script]
 EmbyPremiere.js = type=http-response, pattern=^http(s?):\/\/(www\.|)mb3admin\.com\/.*$, script-path=https://raw.githubusercontent.com/Spades-X/Script/main/Script-Surge/EmbyPremiere.js, max-size=131072, requires-body=true, timeout=10, debug=false, enable=true
