@@ -1,6 +1,9 @@
 #!name=Script - Task
-#!desc=签到脚本任务配置 @Spades-X
+#!desc=签到脚本任务配置
 #!system=ios
+#!category=Spades-X
+
+
 
 [Script]
 # ------ <chavyleung https://github.com/chavyleung/scripts> ------
