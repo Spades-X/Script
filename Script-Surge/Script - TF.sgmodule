@@ -1,6 +1,9 @@
 #!name=Script - TF
-#!desc=TF_Download @Spades-X
+#!desc=TF_Download
 #!system=ios
+#!category=Spades-X
+
+
 
 [General]
 skip-proxy = %APPEND% iosapps.itunes.apple.com
