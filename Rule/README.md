@@ -18,11 +18,11 @@ Rule 规则由个人在日常使用过程中需要单独分流的规则。
 ## Surge 
 
 #### 使用说明
-- Personal.list，请使用RULE-SET。
+- AV.list，请使用RULE-SET。
 - AdBlock.list，请使用RULE-SET。
 
 #### 配置建议
-- Personal.list 单独使用。
+- AV.list 单独使用。
 - AdBlock.list 单独使用。
 
 
