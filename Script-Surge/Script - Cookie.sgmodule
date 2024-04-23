@@ -30,6 +30,11 @@
 阿里云盘签到cookie = requires-body=1, type=http-response, pattern=https:\/\/auth.aliyundrive.com\/v2\/account\/token, script-path=https://raw.githubusercontent.com/lowking/Scripts/master/ali/aliYunPanCheckIn.js
 
 
+# ------ <lowking https://github.com/lowking/> ------
+# > 蜜雪冰城签到-(mxsa.mxbc.net)
+蜜雪冰城获取token = type=http-response, pattern=^https:\/\/mxsa\.mxbc\.net\/api\/v1\/customer\/info, requires-body=1, timeout=60, max-size=0, script-path=https://gist.githubusercontent.com/Sliverkiss/865c82e42a5730bb696f6700ebb94cee/raw/mxbc.js, script-update-interval=0
+
+
 
 [MITM]
-hostname = %APPEND% *.video.qq.com, api.m.jd.com, passport.iqiyi.com, e.189.cn, mkt.21cn.com, auth.aliyundrive.com         
+hostname = %APPEND% *.video.qq.com, api.m.jd.com, passport.iqiyi.com, e.189.cn, mkt.21cn.com, auth.aliyundrive.com, mxsa.mxbc.net      
