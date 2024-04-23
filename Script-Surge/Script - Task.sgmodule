@@ -33,3 +33,10 @@
 
 # ------ <Yuheng0101 https://github.com/Yuheng0101/> ------
 𝐉𝐀𝐕𝐃𝐚𝐲每日推荐 = type=cron, cronexp=0 22 * * *, wake-system=1, timeout=60, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/javday.js, script-update-interval=0
+
+
+# ------ <Sliverkiss https://github.com/Sliverkiss/> ------
+# > 蜜雪冰城签到
+蜜雪冰城签到 = type=cron, cronexp=05 0 * * *, wake-system=1, timeout=60, script-path=https://gist.githubusercontent.com/Sliverkiss/865c82e42a5730bb696f6700ebb94cee/raw/mxbc.js, script-update-interval=0
+
+
