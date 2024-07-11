@@ -23,18 +23,20 @@ sudo ./install.sh
 运行脚本后，会出现以下选项：
 
 1.安装 Snell：安装 Snell 代理服务。
+
 2.安装 Snell 和 Shadow TLS：安装 Snell 代理服务和 Shadow TLS。
+
 3.退出脚本：退出安装脚本。
 
-### 配置文件
-Snell 配置文件
+## 配置文件
+### Snell 配置文件
 安装 Snell 后，配置文件位于 /etc/snell-server.conf。默认配置如下：
 
 ```ini
 [snell-server]
-listen = 0.0.0.0:11807
-psk = AijHCeos15IvqDZTb1cJMX5GcgZzIVE
-ipv6 = false
+listen = 0.0.0.0:54633
+psk = 5463364@5463364
+ipv6 = true
 obfs = off
 ```
 
@@ -52,8 +54,8 @@ services:
     environment:
       - MODE=server
       - V3=1
-      - LISTEN=0.0.0.0:54321  # IPv6 改为 [::]:54321
-      - SERVER=127.0.0.1:11807  # IPv6 改为 [::1]:xxx，xxx 是 Snell 节点端口
+      - LISTEN=::0:54321  # IPv6 改为 [::]:54321
+      - SERVER=::1:54633  # IPv6 改为 [::1]:xxx，xxx 是 Snell 节点端口
       - TLS=captive.apple.com:443
       - PASSWORD=5463364@5463364
 ```
