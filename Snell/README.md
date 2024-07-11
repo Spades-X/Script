@@ -13,10 +13,11 @@
 
 ## 使用方法
 
-
 ### 运行脚本
+```bash
 chmod +x install.sh
 sudo ./install.sh
+```
 
 ### 选项说明
 运行脚本后，会出现以下选项：
