@@ -15,8 +15,8 @@
 
 ### 运行脚本
 ```bash
-chmod +x install.sh
-sudo ./install.sh
+chmod +x install_snell_shadowtls.sh
+sudo ./install_snell_shadowtls.sh
 ```
 
 ### 选项说明
