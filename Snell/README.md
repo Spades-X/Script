@@ -35,7 +35,7 @@ sudo ./install_snell_shadowtls.sh
 
 ```ini
 [snell-server]
-listen = 0.0.0.0:54633
+listen = ::0:54633
 psk = 5463364@5463364
 ipv6 = true
 obfs = off
