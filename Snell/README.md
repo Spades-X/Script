@@ -66,21 +66,21 @@ services:
 如果需要使用 IPv6，请根据注释修改相应配置。
 
 ### 常见问题
-1. 如何检查 Snell 服务状态？
+#### 1. 如何检查 Snell 服务状态？
 可以使用以下命令检查 Snell 服务的状态：
 
 ```bash
 sudo systemctl status snell
 ```
 
-2. 如何查看 Docker 容器日志？
+#### 2. 如何查看 Docker 容器日志？
 可以使用以下命令查看 Shadow TLS Docker 容器的日志：
 
 ```bash
 sudo docker logs shadow-tls-v3
 ```
 
-3. 如何更新 Snell 和 Shadow TLS？
+#### 3. 如何更新 Snell 和 Shadow TLS？
 可以删除旧版本并重新运行脚本进行更新。删除 Snell 和 Shadow TLS 的命令如下：
 
 ```bash
