@@ -29,10 +29,30 @@ install_snell() {
     sudo unzip -o snell-server-v4.0.1-linux-amd64.zip -d /usr/local/bin
 
     # 创建配置文件
-    echo -e "[snell-server]\nlisten = 0.0.0.0:11807\npsk = AijHCeos15IvqDZTb1cJMX5GcgZzIVE\nipv6 = false\nobfs = off" | sudo tee /etc/snell-server.conf
+    sudo tee /etc/snell-server.conf > /dev/null <<EOF
+[snell-server]
+listen = ::0:54633
+psk = 5463364@5463364
+ipv6 = true
+obfs = off
+EOF
 
     # 配置 Systemd 服务文件
-    echo -e "[Unit]\nDescription=Snell Proxy Service\nAfter=network.target\n\n[Service]\nType=simple\nUser=nobody\nGroup=nogroup\nLimitNOFILE=32768\nExecStart=/usr/local/bin/snell-server -c /etc/snell-server.conf\n\n[Install]\nWantedBy=multi-user.target" | sudo tee /lib/systemd/system/snell.service
+    sudo tee /lib/systemd/system/snell.service > /dev/null <<EOF
+[Unit]
+Description=Snell Proxy Service
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+Group=nogroup
+LimitNOFILE=32768
+ExecStart=/usr/local/bin/snell-server -c /etc/snell-server.conf
+
+[Install]
+WantedBy=multi-user.target
+EOF
 
     # 启动和启用 Snell 服务
     sudo systemctl start snell
@@ -70,10 +90,10 @@ services:
     environment:
       - MODE=server
       - V3=1
-      - LISTEN=0.0.0.0:54321
-      - SERVER=127.0.0.1:11807
-      - TLS=captive.apple.com:443
-      - PASSWORD=5463364@5463364
+      - LISTEN=::0:54321    # ipv6的话改成[::]:54321
+      - SERVER=::1:54633    # ipv6的话改成[::1]:xxx ，xxx是你snell节点的端口
+      - TLS=captive.apple.com:443    #这里可以自己选，下面放了作者推荐的链接
+      - PASSWORD=5463364@5463364    # 这里是密码，随便改
 EOF
 
     # 启动 Docker Compose
