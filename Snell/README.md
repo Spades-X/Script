@@ -15,6 +15,7 @@
 
 ### 运行脚本
 ```bash
+wget https://raw.githubusercontent.com/Spades-X/Script/main/Snell/install_snell_shadowtls.sh
 chmod +x install_snell_shadowtls.sh
 sudo ./install_snell_shadowtls.sh
 ```
