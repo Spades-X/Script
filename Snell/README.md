@@ -30,18 +30,18 @@ sudo ./install.sh
 Snell 配置文件
 安装 Snell 后，配置文件位于 /etc/snell-server.conf。默认配置如下：
 
-'''ini
+```ini
 [snell-server]
 listen = 0.0.0.0:11807
 psk = AijHCeos15IvqDZTb1cJMX5GcgZzIVE
 ipv6 = false
 obfs = off
-'''
+```
 
 ### Shadow TLS 配置文件
 安装 Shadow TLS 后，配置文件位于 /dockers/shadow-tls-v3/docker-compose.yml。默认配置如下：
 
-'''yaml
+```yaml
 version: "3.16"
 services:
   shadow-tls:
@@ -56,7 +56,7 @@ services:
       - SERVER=127.0.0.1:11807  # IPv6 改为 [::1]:xxx，xxx 是 Snell 节点端口
       - TLS=captive.apple.com:443
       - PASSWORD=5463364@5463364
-'''
+```
 
 ### 注意事项
 请确保在运行脚本前具有 sudo 权限。
@@ -67,21 +67,21 @@ services:
 1. 如何检查 Snell 服务状态？
 可以使用以下命令检查 Snell 服务的状态：
 
-'''bash
+```bash
 sudo systemctl status snell
-'''
+```
 
 2. 如何查看 Docker 容器日志？
 可以使用以下命令查看 Shadow TLS Docker 容器的日志：
 
-'''bash
+```bash
 sudo docker logs shadow-tls-v3
-'''
+```
 
 3. 如何更新 Snell 和 Shadow TLS？
 可以删除旧版本并重新运行脚本进行更新。删除 Snell 和 Shadow TLS 的命令如下：
 
-'''bash
+```bash
 sudo systemctl stop snell
 sudo systemctl disable snell
 sudo rm /usr/local/bin/snell-server
@@ -90,12 +90,12 @@ sudo rm /lib/systemd/system/snell.service
 
 sudo docker-compose -f /dockers/shadow-tls-v3/docker-compose.yml down
 sudo rm -r /dockers/shadow-tls-v3
-'''
+```
 
 然后重新运行安装脚本即可。
 
 ## 感谢
-在编写 Snell 安装部分时，参考了 DivineEngine 的 Snell 安装教程。非常感谢 DivineEngine 提供的详细教程。
+在编写 Snell 安装部分时，参考了 DivineEngine 的 ([Snell 安装教程](https://divineengine.net/article/deploying-a-snell-server/))。非常感谢 DivineEngine 提供的详细教程。
 
 ## 贡献
 欢迎提交 Issue 和 Pull Request 来改进本项目。如果有任何问题或建议，请联系我。
