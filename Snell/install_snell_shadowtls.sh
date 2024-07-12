@@ -18,11 +18,11 @@ log() {
 # 显示主菜单并读取用户选择
 print_menu_and_read_choice() {
     log "${yellow}欢迎使用 Snell V4 和 Shadow TLS V3 安装脚本！请选择:${plain}"
+    log "--------------------------------------------------"
     log "${green}1. 安装 Snell V4${plain}"
     log "${green}2. 安装 Snell V4 和 Shadow TLS V3${plain}"
     log "--------------------------------------------------"
     log "${red}3. 删除 Snell V4${plain}"
-    log "--------------------------------------------------"
     log "${red}4. 删除 Shadow TLS V3${plain}"
     log "--------------------------------------------------"
     log "${blue}5. 更新脚本${plain}"
