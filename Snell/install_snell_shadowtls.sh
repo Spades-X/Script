@@ -61,24 +61,6 @@ validate_port() {
     return 0
 }
 
-# 配置 Snell 服务
-configure_snell() {
-    read -p "请输入 Snell 监听端口 (默认值 12345): " listen_port
-    listen_port=${listen_port:-12345}
-    validate_port "$listen_port" || exit 1
-
-    read -p "请输入 Snell 密码: " snell_password
-
-    sudo tee /etc/snell-server.conf > /dev/null <<EOF
-[snell-server]
-listen = 0.0.0.0:$listen_port
-psk = $snell_password
-obfs = tls
-EOF
-
-    log "${color_green}Snell 配置文件已生成。${color_plain}"
-}
-
 # 安装Snell服务
 install_snell() {
     if sudo systemctl is-active --quiet snell; then
@@ -154,17 +136,16 @@ install_shadow_tls() {
 
     sudo mkdir -p /dockers/shadow-tls-v3
 
-    shadow_listen_ip="0.0.0.0"
+    shadow_listen_ip="$listen_ip"
     read -p "请输入 Shadow TLS 监听端口 (默认值 54321): " shadow_listen_port
     shadow_listen_port=${shadow_listen_port:-54321}
     validate_port "$shadow_listen_port" || exit 1
     
-    if [ "$shadow_listen_ip" = "0.0.0.0" ]; then
+    if [ "$listen_ip" = "0.0.0.0" ]; then
         shadow_server_ip="127.0.0.1"
     else
         shadow_server_ip="::1"
     fi
-    read -p "请输入 Snell 监听端口: " listen_port
     shadow_server="$shadow_server_ip:$listen_port"
 
     read -p "请输入 Shadow TLS 的 TLS 地址 (默认值 captive.apple.com:443): " shadow_tls
@@ -199,13 +180,13 @@ EOF
 remove_shadow_tls() {
     log "${color_yellow}开始删除 Shadow TLS V3...${color_plain}"
 
-    (cd /dockers/shadow-tls-v3 && sudo docker compose down --rmi all)
+    (cd /dockers/shadow-tls-v3 && sudo docker-compose down --rmi all)
     sudo rm -rf /dockers/shadow-tls-v3
 
-    # 同时删除 Snell 服务
+    #同时删除snell
     remove_snell
 
-    log "${color_green}Shadow TLS 已删除，Snell V4已删除。${color_plain}"
+    log "${color_green}Shadow TLS 已删除，Snell V4 已删除。${color_plain}"
 }
 
 # 更新脚本
@@ -221,4 +202,41 @@ update_script() {
 
 # 根据用户选择执行相应操作
 select_action() {
-    case "$1"
+    case "$1" in
+        1)
+            install_prerequisites
+            install_snell
+            ;;
+        2)
+            install_prerequisites
+            install_snell
+            install_shadow_tls
+            ;;
+        3)
+            remove_snell
+            ;;
+        4)
+            remove_shadow_tls
+            remove_snell
+            ;;
+        5)
+            update_script
+            ;;
+        0)
+            log "${color_red}退出脚本${color_plain}"
+            exit 0
+            ;;
+        *)
+            log "${color_red}无效的选择${color_plain}"
+            ;;
+    esac
+}
+
+# 主流程
+print_menu_and_read_choice
+if validate_choice "$selected_option"; then
+    select_action "$selected_option"
+else
+    log "${color_red}无效的选择，退出脚本。${color_plain}"
+fi
+log "${color_green}操作完成！${color_plain}"
