@@ -226,4 +226,41 @@ update_script() {
     wget -O "$script_path" "$script_url" || { log "${red}更新脚本失败。${plain}"; exit 1; }
     chmod +x "$script_path"
     log "${green}脚本更新完成，请重新运行脚本。${plain}"
-    exit
+    exit 0
+}
+
+# 根据用户选择执行相应的安装或删除操作
+select_action() {
+    case $1 in
+        1)
+            install_prerequisites
+            install_snell
+            ;;
+        2)
+            install_prerequisites
+            install_snell
+            install_shadow_tls
+            ;;
+        3)
+            remove_snell
+            ;;
+        4)
+            remove_shadow_tls
+            ;;
+        5)
+            update_script
+            ;;
+        0)
+            log "${red}退出脚本。${plain}"
+            exit 0
+            ;;
+        *)
+            log "${red}无效的选择。${plain}"
+            ;;
+    esac
+}
+
+# 主流程
+print_menu_and_read_choice
+select_action "$choice"
+log "${green}操作完成！${plain}"
