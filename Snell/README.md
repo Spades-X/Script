@@ -20,11 +20,10 @@
 
 ## 使用方法
 
-1. 克隆此仓库或下载脚本文件：
+1. 下载脚本文件：
 
     ```sh
-    git clone https://github.com/你的用户名/你的仓库.git
-    cd 你的仓库
+   wget https://raw.githubusercontent.com/Spades-X/Script/main/Snell/install_snell_shadowtls.sh
     ```
 
 2. 确保脚本具有可执行权限：
