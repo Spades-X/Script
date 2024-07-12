@@ -116,7 +116,6 @@ install_snell() {
     
     wget $SNELL_URL -O snell-server.zip || { log "${color_red}下载 Snell 失败。${color_plain}"; exit 1; }
     sudo unzip -o snell-server.zip -d /usr/local/bin || { log "${color_red}解压 Snell 失败。${color_plain}"; exit 1; }
-    rm snell-server.zip
 
     configure_snell
 
