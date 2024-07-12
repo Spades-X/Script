@@ -141,7 +141,7 @@ install_shadow_tls() {
     shadow_listen_port=${shadow_listen_port:-54321}
     validate_port "$shadow_listen_port" || exit 1
     
-    if [ "$listen_ip" = "0.0.0.0" ]; then
+    if [ "$listen_ip" = "0.0.0.0" ];then
         shadow_server_ip="127.0.0.1"
     else
         shadow_server_ip="::1"
@@ -236,3 +236,6 @@ print_menu_and_read_choice
 if validate_choice "$selected_option"; then
     select_action "$selected_option"
 else
+    log "${color_red}无效的选择，退出脚本。${color_plain}"
+fi
+log "${color_green}操作完成！${color_plain}"
