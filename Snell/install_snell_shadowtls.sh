@@ -4,6 +4,7 @@
 red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
+blue='\033[0;34m'
 plain='\033[0m'
 
 # 日志文件路径
@@ -24,8 +25,10 @@ print_menu_and_read_choice() {
     log "--------------------------------------------------"
     log "${red}4. 删除 Shadow TLS V3${plain}"
     log "--------------------------------------------------"
+    log "${blue}5. 更新脚本${plain}"
+    log "--------------------------------------------------"
     log "${red}0. 退出脚本${plain}"
-    read -p "请输入您的选择(0/1/2/3/4): " choice
+    read -p "请输入您的选择(0/1/2/3/4/5): " choice
 }
 
 # 安装前置条件，如 wget 和 unzip
@@ -148,7 +151,7 @@ remove_snell() {
 
 # 安装 Docker 和 Docker Compose
 install_docker() {
-    if ! command -v docker &> /dev/null || ! command -v docker-compose &> /dev/null; then
+    if ! command -v docker &> /dev/null || ! command -v docker compose &> /dev/null; then
         log "${yellow}安装 Docker 和 Docker Compose...${plain}"
         sudo apt-get update
         sudo apt-get install -y docker.io docker-compose || { log "${red}安装 Docker 和 Docker Compose 失败。${plain}"; exit 1; }
@@ -200,7 +203,7 @@ services:
       - PASSWORD=$shadow_password
 EOF
 
-    (cd /dockers/shadow-tls-v3 && sudo docker-compose up -d)
+    (cd /dockers/shadow-tls-v3 && sudo docker compose up -d)
 
     log "${green}Shadow TLS 安装并启动完成。${plain}"
 }
@@ -209,41 +212,18 @@ EOF
 remove_shadow_tls() {
     log "${yellow}开始删除 Shadow TLS V3...${plain}"
 
-    (cd /dockers/shadow-tls-v3 && sudo docker-compose down --rmi all)
+    (cd /dockers/shadow-tls-v3 && sudo docker compose down --rmi all)
     sudo rm -rf /dockers/shadow-tls-v3
 
     log "${green}Shadow TLS 已删除。${plain}"
 }
 
-# 根据用户选择执行相应的安装或删除操作
-select_action() {
-    case $1 in
-        1)
-            install_prerequisites
-            install_snell
-            ;;
-        2)
-            install_prerequisites
-            install_snell
-            install_shadow_tls
-            ;;
-        3)
-            remove_snell
-            ;;
-        4)
-            remove_shadow_tls
-            ;;
-        0)
-            log "${red}退出脚本。${plain}"
-            exit 0
-            ;;
-        *)
-            log "${red}无效的选择。${plain}"
-            ;;
-    esac
-}
-
-# 主流程
-print_menu_and_read_choice
-select_action "$choice"
-log "${green}操作完成！${plain
+# 更新脚本
+update_script() {
+    log "${yellow}开始更新脚本...${plain}"
+    script_url="https://raw.githubusercontent.com/Spades-X/Script/main/Snell/install_snell_shadowtls.sh"
+    script_path=$(realpath "$0")
+    wget -O "$script_path" "$script_url" || { log "${red}更新脚本失败。${plain}"; exit 1; }
+    chmod +x "$script_path"
+    log "${green}脚本更新完成，请重新运行脚本。${plain}"
+    exit
