@@ -1,109 +1,100 @@
-# Snell 和 Shadow TLS 一键安装脚本
+# Snell V4 和 Shadow TLS V3 安装脚本
 
-## 简介
-
-这是一个用于安装 Snell 和 Shadow TLS 的一键脚本。该脚本可以自动检测 Snell 服务的运行状态，并根据用户的选择进行相应的软件安装。提供了三个选项：仅安装 Snell，安装 Snell 和 Shadow TLS，以及退出脚本。
+这是一个用于安装、配置和管理Snell V4和Shadow TLS V3服务的Bash脚本。通过该脚本，您可以轻松地安装、配置、更新和删除这些服务。
 
 ## 功能
 
-1. 检查 Snell 服务是否正在运行。
-2. 根据用户选择安装 Snell 或 Snell 和 Shadow TLS。
-3. 自动安装所需的依赖项（如 wget、unzip、docker 和 docker-compose）。
-4. 自动配置 Snell 和 Shadow TLS 的服务文件。
+- 安装Snell V4
+- 安装Snell V4和Shadow TLS V3
+- 删除Snell V4
+- 删除Shadow TLS V3（同时删除Snell V4）
+- 更新脚本
+
+## 先决条件
+
+在运行脚本之前，请确保您的系统满足以下条件：
+
+- Ubuntu或其他Debian系Linux发行版
+- sudo权限
+- 网络连接
 
 ## 使用方法
 
-### 运行脚本
-```bash
-wget https://raw.githubusercontent.com/Spades-X/Script/main/Snell/install_snell_shadowtls.sh
-chmod +x install_snell_shadowtls.sh
-sudo ./install_snell_shadowtls.sh
-```
+1. 克隆此仓库或下载脚本文件：
 
-### 选项说明
-运行脚本后，会出现以下选项：
+    ```sh
+    git clone https://github.com/你的用户名/你的仓库.git
+    cd 你的仓库
+    ```
 
-1.安装 Snell：安装 Snell 代理服务。
+2. 确保脚本具有可执行权限：
 
-2.安装 Snell 和 Shadow TLS：安装 Snell 代理服务和 Shadow TLS。
+    ```sh
+    chmod +x install_snell_shadowtls.sh
+    ```
 
-3.退出脚本：退出安装脚本。
+3. 运行脚本：
 
-## 配置文件
-### Snell 配置文件
-安装 Snell 后，配置文件位于 /etc/snell-server.conf。默认配置如下：
+    ```sh
+    sudo ./install_snell_shadowtls.sh
+    ```
 
-```ini
-[snell-server]
-listen = ::0:54633
-psk = 5463364@5463364
-ipv6 = true
-obfs = off
-```
+4. 按照脚本提示选择操作：
 
-### Shadow TLS 配置文件
-安装 Shadow TLS 后，配置文件位于 /dockers/shadow-tls-v3/docker-compose.yml。默认配置如下：
+    - 1: 安装 Snell V4
+    - 2: 安装 Snell V4 和 Shadow TLS V3
+    - 3: 删除 Snell V4
+    - 4: 删除 Shadow TLS V3（同时删除 Snell V4）
+    - 5: 更新脚本
+    - 0: 退出脚本
 
-```yaml
-version: "3.16"
-services:
-  shadow-tls:
-    image: ghcr.io/ihciah/shadow-tls:latest
-    container_name: shadow-tls-v3
-    restart: always
-    network_mode: "host"
-    environment:
-      - MODE=server
-      - V3=1
-      - LISTEN=::0:54321  # IPv6 改为 [::]:54321
-      - SERVER=::1:54633  # IPv6 改为 [::1]:xxx，xxx 是 Snell 节点端口
-      - TLS=captive.apple.com:443
-      - PASSWORD=5463364@5463364
-```
+## 脚本功能详解
 
-### 注意事项
-请确保在运行脚本前具有 sudo 权限。
-安装 Docker 和 Docker Compose 可能需要一定的时间，请耐心等待。
-如果需要使用 IPv6，请根据注释修改相应配置。
+### 安装前置条件
 
-### 常见问题
-#### 1. 如何检查 Snell 服务状态？
-可以使用以下命令检查 Snell 服务的状态：
+脚本首先会检查并安装必要的依赖工具 `wget` 和 `unzip`，确保后续操作顺利进行。
 
-```bash
-sudo systemctl status snell
-```
+### 安装 Snell V4
 
-#### 2. 如何查看 Docker 容器日志？
-可以使用以下命令查看 Shadow TLS Docker 容器的日志：
+选择安装Snell V4时，脚本会执行以下步骤：
 
-```bash
-sudo docker logs shadow-tls-v3
-```
+1. 下载Snell V4的压缩包。
+2. 解压并安装Snell V4。
+3. 配置Snell V4的服务文件。
+4. 启动并启用Snell V4服务。
 
-#### 3. 如何更新 Snell 和 Shadow TLS？
-可以删除旧版本并重新运行脚本进行更新。删除 Snell 和 Shadow TLS 的命令如下：
+### 安装 Snell V4 和 Shadow TLS V3
 
-```bash
-sudo systemctl stop snell
-sudo systemctl disable snell
-sudo rm /usr/local/bin/snell-server
-sudo rm /etc/snell-server.conf
-sudo rm /lib/systemd/system/snell.service
+选择安装Snell V4和Shadow TLS V3时，脚本会执行以下步骤：
 
-sudo docker-compose -f /dockers/shadow-tls-v3/docker-compose.yml down
-sudo rm -r /dockers/shadow-tls-v3
-```
+1. 按上述步骤安装Snell V4。
+2. 安装Docker和Docker Compose。
+3. 配置并启动Shadow TLS V3的Docker容器。
 
-然后重新运行安装脚本即可。
+### 删除 Snell V4
+
+选择删除Snell V4时，脚本会停止并禁用Snell服务，删除相关文件和配置。
+
+### 删除 Shadow TLS V3
+
+选择删除Shadow TLS V3时，脚本会停止并删除Shadow TLS V3的Docker容器及其配置文件，同时删除Snell服务及其相关配置。
+
+### 更新脚本
+
+选择更新脚本时，脚本会从指定的URL下载最新版本的脚本并替换当前脚本。
+
+## 注意事项
+
+- 本脚本仅适用于Debian系Linux发行版。
+- 请确保以root或具有sudo权限的用户运行脚本。
+- 删除Shadow TLS V3时会同时删除Snell V4，请注意备份相关配置。
+
+## 许可证
+
+此脚本基于MIT许可证开源。详细信息请参阅LICENSE文件。
 
 ## 感谢
 在编写 Snell 安装部分时，参考了 DivineEngine 的 ([Snell 安装教程](https://divineengine.net/article/deploying-a-snell-server/))。非常感谢 DivineEngine 提供的详细教程。
 
 ## 贡献
 欢迎提交 Issue 和 Pull Request 来改进本项目。如果有任何问题或建议，请联系我。
-
-## 许可
-本项目采用 MIT 许可。
-
-这个 `README.md` 文件包含了所有必要的信息，帮助用户理解和使用一键安装脚本，包括简介、功能、使用方法、配置文件、注意事项、常见问题、感谢、贡献和许可部分。
