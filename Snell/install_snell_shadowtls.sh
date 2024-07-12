@@ -42,46 +42,6 @@ validate_choice() {
     return 0
 }
 
-# 根据用户选择执行相应操作
-select_action() {
-    case "$1" in
-        1)
-            install_prerequisites
-            install_snell
-            ;;
-        2)
-            install_prerequisites
-            install_snell
-            install_shadow_tls
-            ;;
-        3)
-            remove_snell
-            ;;
-        4)
-            remove_shadow_tls
-            ;;
-        5)
-            update_script
-            ;;
-        0)
-            log "${color_red}退出脚本${color_plain}"
-            exit 0
-            ;;
-        *)
-            log "${color_red}无效的选择${color_plain}"
-            ;;
-    esac
-}
-
-# 主流程
-print_menu_and_read_choice
-if validate_choice "$selected_option"; then
-    select_action "$selected_option"
-else
-    log "${color_red}无效的选择，退出脚本。${color_plain}"
-fi
-log "${color_green}操作完成！${color_plain}"
-
 # 安装前置条件
 install_prerequisites() {
     if ! command -v wget &> /dev/null || ! command -v unzip &> /dev/null; then
@@ -227,7 +187,6 @@ remove_shadow_tls() {
     remove_snell
 
     log "${color_green}Shadow TLS 已删除，Snell V4已删除。${color_plain}"
-    
 }
 
 # 更新脚本
@@ -235,4 +194,45 @@ update_script() {
     log "${color_yellow}开始更新脚本...${color_plain}"
     script_url="https://raw.githubusercontent.com/Spades-X/Script/main/Snell/install_snell_shadowtls.sh"
     script_path=$(realpath "$0")
-    wget -O "$script_path" "$
+    wget -O "$script_path" "$script_url" || { log "${color_red}更新脚本失败。${color_plain}"; exit 1; }
+    chmod +x "$script_path"
+    log "${color_green}脚本更新完成，请重新运行脚本。${color_plain}"
+    exit 0
+}
+
+# 根据用户选择执行相应操作
+select_action() {
+    case "$1" in
+        1)
+            install_prerequisites
+            install_snell
+            ;;
+        2)
+            install_prerequisites
+            install_snell
+            install_shadow_tls
+            ;;
+        3)
+            remove_snell
+            ;;
+        4)
+            remove_shadow_tls
+            ;;
+        5)
+            update_script
+            ;;
+        0)
+            log "${color_red}退出脚本${color_plain}"
+            exit 0
+            ;;
+        *)
+            log "${color_red}无效的选择${color_plain}"
+            ;;
+    esac
+}
+
+# 主流程
+print_menu_and_read_choice
+if validate_choice "$selected_option"; then
+    select_action "$selected_option"
+else
