@@ -114,8 +114,9 @@ install_snell() {
     SNELL_URL="https://dl.nssurge.com/snell/snell-server-$SNELL_VERSION-linux-amd64.zip"
     SNELL_BIN="/usr/local/bin/snell-server"
     
-    wget $SNELL_URL -O snell-server.zip || { log "${color_red}下载 Snell 失败。${color_plain}"; exit 1; }
+    wget "$SNELL_URL" -O snell-server.zip || { log "${color_red}下载 Snell 失败。${color_plain}"; exit 1; }
     sudo unzip -o snell-server.zip -d /usr/local/bin || { log "${color_red}解压 Snell 失败。${color_plain}"; exit 1; }
+    rm snell-server.zip
 
     configure_snell
 
@@ -158,7 +159,7 @@ remove_snell() {
 
 # 安装Docker和Docker Compose
 install_docker() {
-    if ! command -v docker &> /dev/null || ! command -v docker compose &> /dev/null; then
+    if ! command -v docker &> /dev/null || ! command -v docker-compose &> /dev/null; then
         log "${color_yellow}安装 Docker 和 Docker Compose...${color_plain}"
         sudo apt-get update
         sudo apt-get install -y docker.io docker-compose || { log "${color_red}安装 Docker 和 Docker Compose 失败。${color_plain}"; exit 1; }
@@ -234,8 +235,4 @@ update_script() {
     log "${color_yellow}开始更新脚本...${color_plain}"
     script_url="https://raw.githubusercontent.com/Spades-X/Script/main/Snell/install_snell_shadowtls.sh"
     script_path=$(realpath "$0")
-    wget -O "$script_path" "$script_url" || { log "${color_red}更新脚本失败。${color_plain}"; exit 1; }
-    chmod +x "$script_path"
-    log "${color_green}脚本更新完成，请重新运行脚本。${color_plain}"
-    exit 0
-}
+    wget -O "$script_path" "$
