@@ -17,15 +17,70 @@ log() {
     echo -e "$1" | tee -a "$log_file"
 }
 
-# 验证端口号有效性
-validate_port() {
-    local port="$1"
-    if ! [[ "$port" =~ ^[0-9]+$ ]] || [ "$port" -lt 1 ] || [ "$port" -gt 65535 ]; then
-        log "${color_red}无效的端口号: $port${color_plain}"
+# 打印菜单并读取用户选择
+print_menu_and_read_choice() {
+    log "${color_yellow}欢迎使用 Snell V4 和 Shadow TLS V3 安装脚本！请选择:${color_plain}"
+    log "--------------------------------------------------"
+    log "${color_green}1. 安装 Snell V4${color_plain}"
+    log "${color_green}2. 安装 Snell V4 和 Shadow TLS V3${color_plain}"
+    log "--------------------------------------------------"
+    log "${color_red}3. 删除 Snell V4${color_plain}"
+    log "${color_red}4. 删除 Shadow TLS V3（同时删除Snell V4）${color_plain}"
+    log "--------------------------------------------------"
+    log "${color_blue}5. 更新脚本${color_plain}"
+    log "--------------------------------------------------"
+    log "${color_red}0. 退出脚本${color_plain}"
+    read -p "请输入您的选择(0/1/2/3/4/5): " selected_option
+}
+
+# 验证用户输入的选择
+validate_choice() {
+    if ! [[ $1 =~ ^[0-5]$ ]]; then
+        log "${color_red}无效的选择，只能输入0-5之间的数字。${color_plain}"
         return 1
     fi
     return 0
 }
+
+# 根据用户选择执行相应操作
+select_action() {
+    case "$1" in
+        1)
+            install_prerequisites
+            install_snell
+            ;;
+        2)
+            install_prerequisites
+            install_snell
+            install_shadow_tls
+            ;;
+        3)
+            remove_snell
+            ;;
+        4)
+            remove_shadow_tls
+            ;;
+        5)
+            update_script
+            ;;
+        0)
+            log "${color_red}退出脚本${color_plain}"
+            exit 0
+            ;;
+        *)
+            log "${color_red}无效的选择${color_plain}"
+            ;;
+    esac
+}
+
+# 主流程
+print_menu_and_read_choice
+if validate_choice "$selected_option"; then
+    select_action "$selected_option"
+else
+    log "${color_red}无效的选择，退出脚本。${color_plain}"
+fi
+log "${color_green}操作完成！${color_plain}"
 
 # 安装前置条件
 install_prerequisites() {
@@ -34,6 +89,16 @@ install_prerequisites() {
         sudo apt-get update
         sudo apt-get install -y wget unzip || { log "${color_red}安装 wget 和 unzip 失败。${color_plain}"; exit 1; }
     fi
+}
+
+# 验证端口号有效性
+validate_port() {
+    local port="$1"
+    if ! [[ "$port" =~ ^[0-9]+$ ]] || [ "$port" -lt 1 ] || [ "$port" -gt 65535 ]; then
+        log "${color_red}无效的端口号: $port${color_plain}"
+        return 1
+    fi
+    return 0
 }
 
 # 安装Snell服务
@@ -158,10 +223,11 @@ remove_shadow_tls() {
     (cd /dockers/shadow-tls-v3 && sudo docker-compose down --rmi all)
     sudo rm -rf /dockers/shadow-tls-v3
 
-    log "${color_green}Shadow TLS 已删除。${color_plain}"
-
     # 同时删除 Snell 服务
     remove_snell
+
+    log "${color_green}Shadow TLS 已删除，Snell V4已删除。${color_plain}"
+    
 }
 
 # 更新脚本
@@ -174,68 +240,3 @@ update_script() {
     log "${color_green}脚本更新完成，请重新运行脚本。${color_plain}"
     exit 0
 }
-
-# 打印菜单并读取用户选择
-print_menu_and_read_choice() {
-    log "${color_yellow}欢迎使用 Snell V4 和 Shadow TLS V3 安装脚本！请选择:${color_plain}"
-    log "--------------------------------------------------"
-    log "${color_green}1. 安装 Snell V4${color_plain}"
-    log "${color_green}2. 安装 Snell V4 和 Shadow TLS V3${color_plain}"
-    log "--------------------------------------------------"
-    log "${color_red}3. 删除 Snell V4${color_plain}"
-    log "${color_red}4. 删除 Shadow TLS V3${color_plain}"
-    log "--------------------------------------------------"
-    log "${color_blue}5. 更新脚本${color_plain}"
-    log "--------------------------------------------------"
-    log "${color_red}0. 退出脚本${color_plain}"
-    read -p "请输入您的选择(0/1/2/3/4/5): " selected_option
-}
-
-# 验证用户输入的选择
-validate_choice() {
-    if ! [[ $1 =~ ^[0-5]$ ]]; then
-        log "${color_red}无效的选择，只能输入0-5之间的数字。${color_plain}"
-        return 1
-    fi
-    return 0
-}
-
-# 根据用户选择执行相应操作
-select_action() {
-    case "$1" in
-        1)
-            install_prerequisites
-            install_snell
-            ;;
-        2)
-            install_prerequisites
-            install_snell
-            install_shadow_tls
-            ;;
-        3)
-            remove_snell
-            ;;
-        4)
-            remove_shadow_tls
-            ;;
-        5)
-            update_script
-            ;;
-        0)
-            log "${color_red}退出脚本${color_plain}"
-            exit 0
-            ;;
-        *)
-            log "${color_red}无效的选择${color_plain}"
-            ;;
-    esac
-}
-
-# 主流程
-print_menu_and_read_choice
-if validate_choice "$selected_option"; then
-    select_action "$selected_option"
-else
-    log "${color_red}无效的选择，退出脚本。${color_plain}"
-fi
-log "${color_green}操作完成！${color_plain}"
