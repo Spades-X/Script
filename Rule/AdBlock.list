@@ -76,6 +76,11 @@ DOMAIN-SUFFIX, imprqd.cn
 DOMAIN-SUFFIX, 28t1ya.cn
 DOMAIN-SUFFIX, xn--5nqw9cu4a093d.xn--io0a7i
 DOMAIN-SUFFIX, ko43z7c.cn
+DOMAIN-SUFFIX, 5z6h6b.cn
+DOMAIN-SUFFIX, 29jntb.cn
+DOMAIN-SUFFIX, mbck5t.cn
+DOMAIN-SUFFIX, clarity.ms
+DOMAIN-SUFFIX, qixin.com
 
 URL-REGEX, ^http:\/\/ocsp\.pki\.goog\/gts1c3\/MFAwTjBMMEowSDAHBgUrDgMCGgQUxy55it3%2FYTSzuu1HQri7xsAkB2MEFIp0f6%2BFze6VzT2c0OJGFPNxNR0nAhEA71s3jSBzyOQJyIxeEjHUeg%3D%3D$
 URL-REGEX, ^http:\/\/mail\.kguapp\.com\/ah\/\?r=1687796915687&pt=2&ag=4954&c=1&h=100&x=187&y=684&v=912$
