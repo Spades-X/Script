@@ -105,6 +105,12 @@ DOMAIN-SUFFIX, 6v41p4bsq.com
 DOMAIN-SUFFIX, dotcounter.douyucdn.cn
 DOMAIN-SUFFIX, venus.douyucdn.cn
 
+# > (米家 app 开启时会产生大量请求)
+IP-CIDR, 111.13.213.245:443, REJECT-DROP, no-resolve
+
+
+
+
 
 
 
