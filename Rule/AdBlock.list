@@ -87,6 +87,23 @@ DOMAIN-SUFFIX, 3adtjg.com
 DOMAIN-SUFFIX, 60qso7.com
 DOMAIN-SUFFIX, h1v3fa.com
 DOMAIN-SUFFIX, njp878.com
+DOMAIN-SUFFIX,xn--1lq42ao4e015cuvk.cn
+DOMAIN-SUFFIX,xn--g2xt1d91f2xk.com
+DOMAIN-SUFFIX,sehu1436.cc
+DOMAIN-SUFFIX,didi51-t0020.vip
+DOMAIN-SUFFIX,sehu1433.cc
+DOMAIN-SUFFIX,sehu1434.cc
+DOMAIN-SUFFIX,aifqcp30718a.icu
+DOMAIN-SUFFIX,cvcwj.cn
+DOMAIN-SUFFIX,bytecdntp.com
+DOMAIN-SUFFIX,ahzwfw.gov.cn
+DOMAIN-SUFFIX,dvkvbx.xyz
+DOMAIN-SUFFIX,sinw.net
+DOMAIN-SUFFIX,juying1.fun
+DOMAIN-SUFFIX,s8etj5.com
+DOMAIN-SUFFIX,didi51-t0025.vip
+IP-CIDR,45.114.104.91/32
+DOMAIN-SUFFIX,vkomjd.com
 
 URL-REGEX, ^http:\/\/ocsp\.pki\.goog\/gts1c3\/MFAwTjBMMEowSDAHBgUrDgMCGgQUxy55it3%2FYTSzuu1HQri7xsAkB2MEFIp0f6%2BFze6VzT2c0OJGFPNxNR0nAhEA71s3jSBzyOQJyIxeEjHUeg%3D%3D$
 URL-REGEX, ^http:\/\/mail\.kguapp\.com\/ah\/\?r=1687796915687&pt=2&ag=4954&c=1&h=100&x=187&y=684&v=912$
