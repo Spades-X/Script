@@ -141,6 +141,8 @@ DOMAIN-SUFFIX, hlg2952d.cc
 DOMAIN-SUFFIX, 0jpf7u.com
 DOMAIN-SUFFIX, wtycms.com
 DOMAIN-SUFFIX, tn1i1x.com
+DOMAIN-SUFFIX, 6dkc6z.com
+
 
 URL-REGEX, ^http:\/\/ocsp\.pki\.goog\/gts1c3\/MFAwTjBMMEowSDAHBgUrDgMCGgQUxy55it3%2FYTSzuu1HQri7xsAkB2MEFIp0f6%2BFze6VzT2c0OJGFPNxNR0nAhEA71s3jSBzyOQJyIxeEjHUeg%3D%3D$
 URL-REGEX, ^http:\/\/mail\.kguapp\.com\/ah\/\?r=1687796915687&pt=2&ag=4954&c=1&h=100&x=187&y=684&v=912$
