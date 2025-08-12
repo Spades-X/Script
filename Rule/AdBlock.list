@@ -28,10 +28,9 @@ DOMAIN-SUFFIX, bb9876.xyz
 DOMAIN-SUFFIX, aff006.live
 DOMAIN-SUFFIX, poizzy.xyz
 DOMAIN-SUFFIX, 86368.xyz
-DOMAIN-SUFFIX, zhijiedu.com 
+DOMAIN-SUFFIX, zhijiedu.com
 DOMAIN-SUFFIX, dai2f.com
-DOMAIN-SUFFIX, e1ce8b.xyz 
-DOMAIN-SUFFIX, pki.goog
+DOMAIN-SUFFIX, e1ce8b.xyz
 DOMAIN-SUFFIX, kguapp.com
 DOMAIN-SUFFIX, xfztgxt.com
 DOMAIN-SUFFIX, sdgww.com
@@ -39,7 +38,6 @@ DOMAIN-SUFFIX, lwwnhf.com
 DOMAIN-SUFFIX, zhangchi.work
 DOMAIN-SUFFIX, uu72yy.live
 DOMAIN-SUFFIX, nlmurf.com
-DOMAIN-SUFFIX, cxfdjh.cn
 DOMAIN-SUFFIX, xdfapp88.com
 DOMAIN-SUFFIX, cxfdjh.cn
 DOMAIN-SUFFIX, wwxufo.com
@@ -80,7 +78,6 @@ DOMAIN-SUFFIX, 5z6h6b.cn
 DOMAIN-SUFFIX, 29jntb.cn
 DOMAIN-SUFFIX, mbck5t.cn
 DOMAIN-SUFFIX, clarity.ms
-DOMAIN-SUFFIX, qixin.com
 DOMAIN-SUFFIX, 9tjoj6.com
 DOMAIN-SUFFIX, 4egscv.com
 DOMAIN-SUFFIX, 3adtjg.com
@@ -104,7 +101,6 @@ DOMAIN-SUFFIX, vkomjd.com
 DOMAIN-SUFFIX, q8jghk.com
 DOMAIN-SUFFIX, rcan5y.com
 DOMAIN-SUFFIX, j7jlsu.com
-DOMAIN-SUFFIX, cloudfront.net
 DOMAIN-SUFFIX, o96jic.com
 DOMAIN-SUFFIX, s18cbc.com
 DOMAIN-SUFFIX, xhsrt223.vip
@@ -151,7 +147,6 @@ DOMAIN-SUFFIX, kjgbyn.com
 DOMAIN-SUFFIX, 8cncff.com
 DOMAIN-SUFFIX, sunmzsc.com
 DOMAIN-SUFFIX, jectpbc.xyz
-DOMAIN-SUFFIX, s1rsae.com
 DOMAIN-SUFFIX, guz4t1.com
 
 URL-REGEX, ^http:\/\/ocsp\.pki\.goog\/gts1c3\/MFAwTjBMMEowSDAHBgUrDgMCGgQUxy55it3%2FYTSzuu1HQri7xsAkB2MEFIp0f6%2BFze6VzT2c0OJGFPNxNR0nAhEA71s3jSBzyOQJyIxeEjHUeg%3D%3D$
