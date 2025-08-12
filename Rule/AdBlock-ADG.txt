@@ -27,7 +27,6 @@
 ||zhijiedu.com^
 ||dai2f.com^
 ||e1ce8b.xyz^
-||pki.goog^
 ||kguapp.com^
 ||xfztgxt.com^
 ||sdgww.com^
@@ -75,7 +74,6 @@
 ||29jntb.cn^
 ||mbck5t.cn^
 ||clarity.ms^
-||qixin.com^
 ||9tjoj6.com^
 ||4egscv.com^
 ||3adtjg.com^
@@ -99,7 +97,6 @@
 ||q8jghk.com^
 ||rcan5y.com^
 ||j7jlsu.com^
-||cloudfront.net^
 ||o96jic.com^
 ||s18cbc.com^
 ||xhsrt223.vip^
