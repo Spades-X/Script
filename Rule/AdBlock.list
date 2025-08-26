@@ -174,45 +174,22 @@ DOMAIN-SUFFIX, chnsrv.com
 DOMAIN-SUFFIX, trackwilltrk.com 
 DOMAIN-SUFFIX, gigglegrowlworrisome.com
 DOMAIN-SUFFIX, pncloudfl.com
+DOMAIN-SUFFIX, muzzleexterminator.com
 
-URL-REGEX, ^https:\/\/edge-hls\.saawsedge\.com\/hls\/112305156\/master\/112305156_720p\.m3u8$
-URL-REGEX, ^https:\/\/go\.blcdog\.com\/abc\.gif\?sourceId=300cpm&creativeId=300cpm&userId=55bd8cb5af136ce6840aa9c30dad8d27368662989b588f23a4da42aa3d1ee3d2&action=sbSignupWithModel&quality=original&thumbSizeKey=big&language=en&thumbFit=cover&stripcashR=0&thumbType=SChatBest&kbLimit=25000&modelsInWatchHistoryCount=-1&modelsInFavoritesCount=-1&userType=newuser&modelsCount=1&segment=hls-oldAPI&landing=WidgetV4Universal&referrer&i=0&abTest=widgetv4universal_thumbwon230525&abTestVariant=widgetv4universal_thumbwon230525_bestdefault_82&seenAbTest=1&seenDomain=1&seenLanding=1&filtersMatch=1&m=%5B%7B%22type%22%3A%22navigation%22%2C%22startTime%22%3A0%2C%22duration%22%3A197%7D%2C%7B%22type%22%3A%22resource%22%2C%22startTime%22%3A183%2C%22duration%22%3A0%2C%22transferSize%22%3A0%7D%2C%7B%22type%22%3A%22resource%22%2C%22startTime%22%3A184%2C%22duration%22%3A0%2C%22transferSize%22%3A0%7D%5D&mh=-1426760759$ 
-URL-REGEX, ^https:\/\/go\.blcdog\.com\/api\/models\?landing=WidgetV4Universal&quality=120p&tag=girls%2Fchinese&sortBy=paidUsers&stripcashR=0&forceClient=1&modelPromotion=0&limit=4$ 
-URL-REGEX, ^https:\/\/18comic\.vip\/ajax\/user_daily_event\?daily_id=59$ 
-URL-REGEX, ^https:\/\/18comic\.vip\/cdn-cgi\/mirage_speedtest\/1756199154896$ 
-URL-REGEX, ^https:\/\/malsup\.github\.io\/jquery\.form\.js\?_=1756199154431$ 
-URL-REGEX, ^https:\/\/cdn-msp\.18comic\.vip\/media\/blog\/blank\.jpg$ 
-URL-REGEX, ^https:\/\/cdn-msp\.18comic\.vip\/static\/resources\/files\/500250_CN\.gif$ 
-URL-REGEX, ^https:\/\/cdn-msp\.18comic\.vip\/static\/resources\/files\/700140_CN\(3\)\.gif$ 
-URL-REGEX, ^https:\/\/cdn-msp\.18comic\.vip\/static\/resources\/images\/games\/350x70-V2\.png$ 
-URL-REGEX, ^https:\/\/18comic\.vip\/static\/resources\/images\/%E6%9C%AA%E5%91%BD%E5%90%8D%20\(2\)\.gif$ 
-URL-REGEX, ^https:\/\/18comic\.vip\/static\/resources\/images\/300100\.gif$ 
-URL-REGEX, ^https:\/\/cdn-msp\.18comic\.vip\/media\/albums\/blank\.jpg$ 
-URL-REGEX, ^https:\/\/18comic\.vip\/static\/resources\/images\/%E7%A6%81%E6%BC%ABgif\.gif$ 
-URL-REGEX, ^https:\/\/cdn-msp3\.18comic\.vip\/media\/blog\/blank\.jpg$ 
-URL-REGEX, ^https:\/\/cdn-msp3\.18comic\.vip\/media\/logo\/img-Youtube\.png$ 
-URL-REGEX, ^https:\/\/cdn-msp3\.18comic\.vip\/static\/resources\/files\/500250_CN\.gif$ 
-URL-REGEX, ^https:\/\/cdn-msp3\.18comic\.vip\/static\/resources\/files\/700140_CN\(3\)\.gif$ 
-URL-REGEX, ^https:\/\/cdn-msp3\.18comic\.vip\/static\/resources\/images\/games\/350x70-V2\.png$ 
-URL-REGEX, ^https:\/\/cdn-msp3\.18comic\.vip\/media\/albums\/blank\.jpg$ 
-URL-REGEX, ^https:\/\/18comic\.vip\/static\/resources\/images\/0615-imageonline-co-gifimage%20\(1\)\.gif$ 
-URL-REGEX, ^https:\/\/18comic\.vip\/cdn-cgi\/mirage_speedtest\/1756201621461$ 
-URL-REGEX, ^https:\/\/muzzleexterminator\.com\/474f384acffb783ede8f85547b469eda\/invoke\.js$ 
-URL-REGEX, ^https:\/\/18comic\.vip\/cdn-cgi\/mirage_speedtest\/1756201617193$ 
-URL-REGEX, ^https:\/\/cdn-msp\.18comic\.vip\/media\/logo\/img-Youtube\.png$ 
-URL-REGEX, ^https:\/\/18comic\.vip\/static\/resources\/images\/300x250\(21\)\.gif$ 
-URL-REGEX, ^https:\/\/18comic\.vip\/cdn-cgi\/mirage_speedtest\/1756204176291$ 
-URL-REGEX, ^https:\/\/img\.doppiocdn\.com\/thumbs\/1756203870\/112305156_webp$ 
-URL-REGEX, ^https:\/\/img\.doppiocdn\.com\/thumbs\/1756203450\/205607693_webp$ 
-URL-REGEX, ^https:\/\/img\.doppiocdn\.com\/thumbs\/1756203840\/215790937_webp$ 
-URL-REGEX, ^https:\/\/18comic\.vip\/cdn-cgi\/challenge-platform\/h\/b\/jsd\/r\/0\.6718720083885406:1756196907:_MEUfVaiHtgwkmZctxCeCt7TDRfo53XZfdKPGmJ3Psk\/9752a61e0c432f40$ 
-URL-REGEX, ^https:\/\/cdn-msp2\.18comic\.vip\/media\/blog\/blank\.jpg$ 
-URL-REGEX, ^https:\/\/cdn-msp2\.18comic\.vip\/media\/logo\/img-Youtube\.png$ 
-URL-REGEX, ^https:\/\/cdn-msp2\.18comic\.vip\/static\/resources\/files\/500250_CN\.gif$ 
-URL-REGEX, ^https:\/\/cdn-msp2\.18comic\.vip\/static\/resources\/files\/700140_CN\(3\)\.gif$ 
-URL-REGEX, ^https:\/\/cdn-msp2\.18comic\.vip\/media\/albums\/blank\.jpg$ 
-URL-REGEX, ^https:\/\/18comic\.vip\/static\/resources\/images\/20250304_QC_300100_CN\.gif$ 
-URL-REGEX, ^https:\/\/18comic\.vip\/cdn-cgi\/mirage_speedtest\/1756204963698$ 
+URL-REGEX, ^https?:\/\/(?:[a-z0-9-]+\.)?18comic\.vip\/cdn-cgi\/mirage_speedtest(?:\/\d+)?(?:\?.*)?$
+URL-REGEX, ^https?:\/\/go\.blcdog\.com\/abc\.gif(?:\?.*)?$
+URL-REGEX, ^https?:\/\/go\.blcdog\.com\/api\/models(?:\?.*)?$
+URL-REGEX, ^https?:\/\/img\.doppiocdn\.com\/thumbs\/\d+\/\d+_(?:webp|jpg|png)$
+
+URL-REGEX, ^https?:\/\/cdn-msp\d*\.18comic\.vip\/media\/(?:blog|albums)\/blank\.jpg$
+URL-REGEX, ^https?:\/\/cdn-msp\d*\.18comic\.vip\/media\/logo\/img-Youtube\.png$
+URL-REGEX, ^https?:\/\/cdn-msp\d*\.18comic\.vip\/static\/resources\/files\/(?:500250_CN|700140_CN(?:\(\d+\))?)\.gif$
+URL-REGEX, ^https?:\/\/cdn-msp\d*\.18comic\.vip\/static\/resources\/images\/games\/.+$
+URL-REGEX, ^https?:\/\/(?:www\.)?18comic\.vip\/static\/resources\/images\/(?:300100|300x250(?:\(\d+\))?|0615-imageonline-co-gifimage(?:%20\(\d+\))?|%E6%9C%AA%E5%91%BD%E5%90%8D(?:%20\(\d+\))?|%E7%A6%81%E6%BC%ABgif)\.gif$
+URL-REGEX, ^https?:\/\/(?:www\.)?18comic\.vip\/static\/resources\/images\/\d{8}_[A-Z]+_\d+_CN\.gif$
+
+URL-REGEX, ^https?:\/\/edge-hls\.saawsedge\.com\/hls\/\d+\/master\/\d+_\d+p\.m3u8$
+
 
 
 # > (斗鱼自动更新)
