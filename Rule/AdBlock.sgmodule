@@ -12,8 +12,6 @@ URL-REGEX, ^https?:\/\/img\.doppiocdn\.com\/thumbs\/\d+\/\d+.(?:webp|jpg|png)$
 URL-REGEX, ^https?:\/\/18comic\.vip\/static\/resources\/images\/_.gif(?:\?.*)?$
 URL-REGEX, ^https?:\/\/18comic\.vip\/templates\/frontend\/airav\/js\/\d+_[0-9a-z]+\.js$
 
-URL-REGEX, ^https?:\/\/malsup\.github\.io\/jquery\.form\.js(?:\?_=\d+)?$
-
 URL-REGEX, ^https?:\/\/cdn-msp\d*\.18comic\.vip\/media\/(?:blog|albums)\/blank\.jpg$
 URL-REGEX, ^https?:\/\/cdn-msp\d*\.18comic\.vip\/media\/logo\/img-Youtube\.png$
 URL-REGEX, ^https?:\/\/cdn-msp\d*\.18comic\.vip\/static\/resources\/files\/(?:500250_CN|700140_CN(?:\(\d+\))?)\.gif$
