@@ -179,7 +179,7 @@ DOMAIN-SUFFIX, muzzleexterminator.com
 URL-REGEX, ^https?:\/\/(?:[a-z0-9-]+\.)?18comic\.vip\/cdn-cgi\/mirage_speedtest(?:\/\d+)?(?:\?.*)?$
 URL-REGEX, ^https?:\/\/go\.blcdog\.com\/abc\.gif(?:\?.*)?$
 URL-REGEX, ^https?:\/\/go\.blcdog\.com\/api\/models(?:\?.*)?$
-URL-REGEX, ^https?:\/\/img\.doppiocdn\.com\/thumbs\/\d+\/\d+_(?:webp|jpg|png)$
+URL-REGEX, ^https?:\/\/img\.doppiocdn\.com\/thumbs\/\d+\/\d+.(?:webp|jpg|png)$
 
 URL-REGEX, ^https?:\/\/cdn-msp\d*\.18comic\.vip\/media\/(?:blog|albums)\/blank\.jpg$
 URL-REGEX, ^https?:\/\/cdn-msp\d*\.18comic\.vip\/media\/logo\/img-Youtube\.png$
