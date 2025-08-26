@@ -10,7 +10,7 @@ URL-REGEX, ^https?:\/\/go\.blcdog\.com\/api\/models(?:\?.*)?$
 URL-REGEX, ^https?:\/\/img\.doppiocdn\.com\/thumbs\/\d+\/\d+.(?:webp|jpg|png)$
 
 URL-REGEX, ^https?:\/\/18comic\.vip\/static\/resources\/images\/_.gif(?:\?.*)?$
-URL-REGEX, ^https?:\/\/18comic\.vip\/templates\/frontend\/airav\/js\/\d+_[0-9a-z]+\.js$
+# URL-REGEX, ^https?:\/\/18comic\.vip\/templates\/frontend\/airav\/js\/\d+_[0-9a-z]+\.js$
 
 URL-REGEX, ^https?:\/\/cdn-msp\d*\.18comic\.vip\/media\/(?:blog|albums)\/blank\.jpg$
 URL-REGEX, ^https?:\/\/cdn-msp\d*\.18comic\.vip\/media\/logo\/img-Youtube\.png$
