@@ -9,8 +9,8 @@ URL-REGEX, ^https?:\/\/go\.blcdog\.com\/abc\.gif(?:\?.*)?$, ⛔️ 𝑅𝑒𝑗�
 URL-REGEX, ^https?:\/\/go\.blcdog\.com\/api\/models(?:\?.*)?$, ⛔️ 𝑅𝑒𝑗𝑒𝑐𝑡, extended-matching, pre-matching
 URL-REGEX, ^https?:\/\/img\.doppiocdn\.com\/thumbs\/\d+\/\d+.(?:webp|jpg|png)$, ⛔️ 𝑅𝑒𝑗𝑒𝑐𝑡, extended-matching, pre-matching
 
-# URL-REGEX, ^https?:\/\/18comic\.vip\/static\/resources\/images\/_.gif(?:\?.*)?$, ⛔️ 𝑅𝑒𝑗𝑒𝑐𝑡, extended-matching, pre-matching
-# URL-REGEX, ^https?:\/\/18comic\.vip\/templates\/frontend\/airav\/js\/\d+_[0-9a-z]+\.js$, ⛔️ 𝑅𝑒𝑗𝑒𝑐𝑡, extended-matching, pre-matching
+URL-REGEX, ^https?:\/\/18comic\.vip\/static\/resources\/images\/_.gif(?:\?.*)?$, ⛔️ 𝑅𝑒𝑗𝑒𝑐𝑡, extended-matching, pre-matching
+URL-REGEX, ^https?:\/\/18comic\.vip\/templates\/frontend\/airav\/js\/\d+_[0-9a-z]+\.js$, ⛔️ 𝑅𝑒𝑗𝑒𝑐𝑡, extended-matching, pre-matching
 
 URL-REGEX, ^https?:\/\/cdn-msp\d*\.18comic\.vip\/media\/(?:blog|albums)\/blank\.jpg$, ⛔️ 𝑅𝑒𝑗𝑒𝑐𝑡, extended-matching, pre-matching
 URL-REGEX, ^https?:\/\/cdn-msp\d*\.18comic\.vip\/media\/logo\/img-Youtube\.png$, ⛔️ 𝑅𝑒𝑗𝑒𝑐𝑡, extended-matching, pre-matching
