@@ -3,6 +3,12 @@
 #!category=Spades-X
 
 [Rule]
+# > (https://m.diyibanzhu.me/)
+URL-REGEX, ^https?:\/\/(?:[a-z0-9-]+\.)?kjgbyn\.com(?::\d+)?\/, ⛔️ 𝑅𝑒𝑗𝑒𝑐𝑡, extended-matching, pre-matching
+URL-REGEX, ^https?://(?:[a-z0-9-]+\.)?kguapp\.com/ah/(?:\?.*)?$, ⛔️ 𝑅𝑒𝑗𝑒𝑐𝑡, extended-matching, pre-matching
+URL-REGEX, ^https?://m\.diyibanzhu\.me/js/js4\.js(?:\?.*)?$, ⛔️ 𝑅𝑒𝑗𝑒𝑐𝑡, extended-matching, pre-matching
+
+
 # > (https://18comic.vip/)
 URL-REGEX, ^https?:\/\/(?:[a-z0-9-]+\.)?18comic\.vip\/cdn-cgi\/mirage_speedtest(?:\/\d+)?(?:\?.*)?$, ⛔️ 𝑅𝑒𝑗𝑒𝑐𝑡, extended-matching, pre-matching
 URL-REGEX, ^https?:\/\/go\.blcdog\.com\/abc\.gif(?:\?.*)?$, ⛔️ 𝑅𝑒𝑗𝑒𝑐𝑡, extended-matching, pre-matching
@@ -24,4 +30,4 @@ URL-REGEX, ^https?:\/\/edge-hls\.saawsedge\.com\/hls\/\d+\/master\/\d+_\d+p\.m3u
 
 
 [MITM]
-hostname = %APPEND% 18comic.vip, *.18comic.vip, img.doppiocdn.com, go.blcdog.com
+hostname = %APPEND% *.diyibanzhu.me, 18comic.vip, *.18comic.vip, img.doppiocdn.com, go.blcdog.com
