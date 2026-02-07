@@ -35,4 +35,4 @@
 在您的服务器终端输入以下命令即可启动管理面板：
 
 ```bash
-curl -sSO https://raw.githubusercontent.com/您的用户名/仓库名/main/ssl_mgr.sh && chmod +x ssl_mgr.sh && sudo ./ssl_mgr.sh
+curl -sSO https://raw.githubusercontent.com/Spades-X/Script/refs/heads/main/certbot-cloudflare-mgr/ssl_mgr.sh && chmod +x ssl_mgr.sh && sudo ./ssl_mgr.sh
