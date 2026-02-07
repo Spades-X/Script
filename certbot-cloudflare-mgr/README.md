@@ -1,45 +1,38 @@
-# Let's Encrypt Cloudflare 证书自动化管理脚本
+# Let's Encrypt Cloudflare 证书自动化管理面板
 
-这是一个基于 Bash 编写的交互式脚本，旨在简化在 Linux 服务器上通过 Cloudflare DNS 申请、续订及管理 Let's Encrypt 泛域名 SSL 证书的过程。
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Platform](https://img.shields.io/badge/platform-Ubuntu%20%7C%20Debian-orange.svg)
+![Tool](https://img.shields.io/badge/tool-Certbot%20%7C%20Cloudflare-yellow.svg)
 
-## 🌟 核心功能
+这是一个专为 **Cloudflare 用户** 设计的交互式 SSL 证书管理工具。它解决了通配符证书申请繁琐、手动续期易忘、以及证书文件因权限问题难以提取到本地等痛点。
 
-- **全自动环境搭建**：一键安装 Certbot、Snapd 及 Cloudflare DNS 插件。
-- **泛域名支持**：支持申请 `*.example.com` 格式的通配符证书。
-- **自动续订钩子**：内置 `deploy-hook`，证书续订成功后自动同步到指定文件夹。
-- **证书自动提取**：自动将证书从系统保护目录提取到 `/root/certs_download`，解决权限问题，方便下载。
-- **交互式菜单**：无需记忆复杂命令，通过数字菜单即可完成增、删、查、改。
-- **路径一键查看**：快速查看所有证书存放路径及配套的 Mac 下载命令。
+---
+
+## 🌟 核心特性
+
+- **一键环境集成**：自动安装 Snapd、Certbot 核心及 Cloudflare DNS 专用插件。
+- **通配符证书支持**：支持申请 `*.example.com` 格式证书，保护所有子域名。
+- **极致自动化**：
+  - **自动续订**：利用 Systemd Timer 实现证书到期自动更新。
+  - **自动同步（Deploy Hook）**：证书更新后，自动将最新文件提取到指定下载目录。
+- **权限隔离**：解决 `/etc/letsencrypt` 目录权限过高导致普通用户（或 SFTP 工具）无法下载证书的问题。
+- **交互式菜单**：全中文交互，支持域名增加、删除、状态查询及路径查看。
+- **Mac/本地友好**：自动生成 `scp` 下载命令，一键将证书拉回本地桌面。
+
+---
 
 ## 🚀 快速开始
 
 ### 1. 前提条件
-- 拥有一个 Cloudflare 账号，且域名 DNS 已托管在 Cloudflare。
-- 在 Cloudflare 后台获取一个具有 **Zone:DNS:Edit** 权限的 **API Token**。
-- 一台运行 Ubuntu/Debian（或其他支持 Snap 的 Linux）的服务器，并拥有 **root** 权限。
+- **域名管理**：域名的 DNS 解析必须托管在 [Cloudflare](https://www.cloudflare.com/)。
+- **API Token**：
+  - 登录 Cloudflare -> 我的个人资料 -> API 令牌。
+  - 创建令牌 -> 使用 **“编辑区域 DNS”** 模板。
+  - 权限需包含：`区域 - DNS - 编辑`。
+- **操作系统**：建议使用 Ubuntu 20.04+ 或 Debian 10+。
 
 ### 2. 下载并运行
-你可以直接在服务器上运行以下命令：
+在您的服务器终端输入以下命令即可启动管理面板：
 
 ```bash
-curl -sSO https://raw.githubusercontent.com/你的用户名/仓库名/main/ssl_mgr.sh && chmod +x ssl_mgr.sh && sudo ./ssl_mgr.sh
-
-## 功能说明
-运行脚本后，你将看到以下交互式菜单：
-### 完整环境搭建：首次使用必选。安装所有依赖并配置 Cloudflare API Token。
-### 增加域名证书：输入域名（如 example.com），自动申请该域名及其泛域名的证书。
-### 删除域名证书：安全删除不再需要的证书及相关同步文件。
-### 手动同步证书：立即将 /etc/letsencrypt/ 下的最新证书同步到下载文件夹。
-### 查看当前证书状态：列出所有证书的域名、到期时间及剩余天数。
-### 查看相关文件路径：展示所有配置文件的位置，并自动生成适用于 Mac/本地终端的 scp 下载命令。
-## 📂 证书下载 (Mac/本地)
-脚本会自动将证书同步到 /root/certs_download/。你可以通过以下命令（在选项 6 中会自动生成）将证书一键下载到 Mac 桌面：
-
-```bash
-scp -r root@你的服务器IP:/root/certs_download/ ~/Desktop/
-
-## ⚠️ 安全提示
-本脚本会将 Cloudflare API Token 存储在 /root/.secrets/ 目录下，并设置 600 权限。请确保不要将该目录暴露给非 root 用户。
-请勿将包含真实 Token 的 cloudflare.ini 文件上传到公共仓库。
-建议在 GitHub 仓库中添加 .gitignore 文件以排除临时文件。
-
+curl -sSO https://raw.githubusercontent.com/您的用户名/仓库名/main/ssl_mgr.sh && chmod +x ssl_mgr.sh && sudo ./ssl_mgr.sh
