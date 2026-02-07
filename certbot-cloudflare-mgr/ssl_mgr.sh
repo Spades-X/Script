@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# ====================================================
+# Let's Encrypt + Cloudflare 证书管理面板
+# ====================================================
+
 # 颜色定义
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -21,37 +25,53 @@ fi
 
 # 1. 环境搭建函数
 setup_env() {
-    echo -e "${GREEN}>>> 正在安装基础环境...${NC}"
-    apt update && apt install -y snapd
+    echo -e "${GREEN}>>> 正在安装基础环境 (Snapd, Curl, Certbot)...${NC}"
+    apt update && apt install -y snapd curl
+    
+    # 确保 snap 核心已安装
     snap install core; snap refresh core
+    
+    # 安装 Certbot 及其 Cloudflare 插件
+    echo -e "${GREEN}>>> 安装 Certbot 官方推荐版本...${NC}"
     snap install --classic certbot
     ln -sf /snap/bin/certbot /usr/bin/certbot
     snap set certbot trust-plugin-with-root=ok
     snap install certbot-dns-cloudflare
     
+    # 配置 Cloudflare 凭证
     mkdir -p /root/.secrets/certbot
     if [ ! -f "$CF_INI" ]; then
+        echo -e "${YELLOW}提示: 您需要 Cloudflare API Token (具有 DNS 编辑权限)${NC}"
         read -p "请输入您的 Cloudflare API Token: " CF_TOKEN
         echo "dns_cloudflare_api_token = $CF_TOKEN" > "$CF_INI"
         chmod 600 "$CF_INI"
+    else
+        echo -e "${BLUE}检测到已存在的 Cloudflare 凭证，跳过配置。${NC}"
     fi
 
-    # 创建同步脚本
+    # 创建同步脚本 (copy_certs.sh)
+    echo -e "${GREEN}>>> 创建自动同步脚本...${NC}"
     cat << 'EOF' > "$SYNC_SCRIPT"
 #!/bin/bash
+# 证书同步提取脚本
 DEST_BASE="/root/certs_download"
-DOMAINS=$(ls /etc/letsencrypt/live/ | grep -v 'README')
-for DOMAIN in $DOMAINS; do
-    TARGET_DIR="$DEST_BASE/$DOMAIN"
-    mkdir -p "$TARGET_DIR"
-    cp -L /etc/letsencrypt/live/$DOMAIN/fullchain.pem "$TARGET_DIR/"
-    cp -L /etc/letsencrypt/live/$DOMAIN/privkey.pem "$TARGET_DIR/"
-done
-chmod -R 700 "$DEST_BASE"
+# 自动扫描所有已申请的域名
+if [ -d "/etc/letsencrypt/live" ]; then
+    DOMAINS=$(ls /etc/letsencrypt/live/ | grep -v 'README')
+    for DOMAIN in $DOMAINS; do
+        TARGET_DIR="$DEST_BASE/$DOMAIN"
+        mkdir -p "$TARGET_DIR"
+        # 使用 -L 确保拷贝的是真实文件而非软链接
+        cp -L /etc/letsencrypt/live/$DOMAIN/fullchain.pem "$TARGET_DIR/"
+        cp -L /etc/letsencrypt/live/$DOMAIN/privkey.pem "$TARGET_DIR/"
+    done
+    chmod -R 700 "$DEST_BASE"
+fi
 EOF
     chmod +x "$SYNC_SCRIPT"
     
-    # 挂载钩子
+    # 挂载自动续订钩子 (Deploy Hook)
+    echo -e "${GREEN}>>> 挂载自动续订钩子...${NC}"
     mkdir -p /etc/letsencrypt/renewal-hooks/deploy
     ln -sf "$SYNC_SCRIPT" /etc/letsencrypt/renewal-hooks/deploy/copy_certs.sh
     
@@ -60,42 +80,61 @@ EOF
 
 # 2. 增加域名函数
 add_domain() {
-    read -p "请输入要申请的域名 (例如 lfboy.me): " DOMAIN
-    echo -e "${GREEN}正在为 $DOMAIN 及其泛域名申请证书...${NC}"
+    if [ ! -f "$CF_INI" ]; then
+        echo -e "${RED}错误: 未检测到 Cloudflare 凭证，请先运行选项 1 搭建环境。${NC}"
+        return
+    fi
+    
+    read -p "请输入要申请的主域名 (例如 lfboy.me): " DOMAIN
+    echo -e "${GREEN}正在为 $DOMAIN 及其泛域名 (*.$DOMAIN) 申请证书...${NC}"
+    
+    # 申请证书
     certbot certonly --dns-cloudflare --dns-cloudflare-credentials "$CF_INI" \
         -d "$DOMAIN" -d "*.$DOMAIN"
     
     if [ $? -eq 0 ]; then
+        # 申请成功后立即同步
         bash "$SYNC_SCRIPT"
-        echo -e "${GREEN}域名 $DOMAIN 申请成功并已同步到下载文件夹。${NC}"
+        echo -e "${GREEN}域名 $DOMAIN 申请成功！证书已同步至 $DOWNLOAD_DIR/$DOMAIN${NC}"
     else
-        echo -e "${RED}申请失败，请检查 Token 或域名 DNS 是否在 Cloudflare。${NC}"
+        echo -e "${RED}申请失败。请确认：1. Token 权限正确；2. 域名已在 Cloudflare 解析。${NC}"
     fi
 }
 
 # 3. 删除域名函数
 delete_domain() {
-    echo -e "${YELLOW}当前已有的证书：${NC}"
+    echo -e "\n${YELLOW}当前已有的证书列表：${NC}"
     certbot certificates | grep "Certificate Name"
-    read -p "请输入要删除的证书名称: " CERT_NAME
-    certbot delete --cert-name "$CERT_NAME"
-    rm -rf "$DOWNLOAD_DIR/$CERT_NAME"
-    echo -e "${GREEN}证书 $CERT_NAME 已删除，相关同步文件夹已清理。${NC}"
+    
+    read -p "请输入要删除的证书全名 (Certificate Name): " CERT_NAME
+    if [ -z "$CERT_NAME" ]; then return; fi
+    
+    echo -e "${RED}警告: 即将删除 $CERT_NAME 的所有证书记录及同步文件。${NC}"
+    read -p "确认删除吗？(y/n): " CONFIRM
+    if [ "$CONFIRM" == "y" ]; then
+        certbot delete --cert-name "$CERT_NAME"
+        rm -rf "$DOWNLOAD_DIR/$CERT_NAME"
+        echo -e "${GREEN}已彻底清理 $CERT_NAME 相关内容。${NC}"
+    fi
 }
 
 # 4. 手动同步函数
 sync_certs() {
-    bash "$SYNC_SCRIPT"
-    echo -e "${GREEN}证书已手动同步到 $DOWNLOAD_DIR${NC}"
+    if [ -f "$SYNC_SCRIPT" ]; then
+        bash "$SYNC_SCRIPT"
+        echo -e "${GREEN}同步完成！最新证书已提取到 $DOWNLOAD_DIR${NC}"
+    else
+        echo -e "${RED}错误: 同步脚本不存在，请先运行选项 1。${NC}"
+    fi
 }
 
-# 5. 查看路径函数
+# 5. 查看路径与下载命令
 view_paths() {
     echo -e "\n${BLUE}=== 核心配置文件路径 ===${NC}"
     echo -e "Cloudflare 凭证:  ${YELLOW}$CF_INI${NC}"
     echo -e "自动同步脚本:     ${YELLOW}$SYNC_SCRIPT${NC}"
     echo -e "证书下载根目录:   ${YELLOW}$DOWNLOAD_DIR${NC}"
-    echo -e "自动续订钩子目录: ${YELLOW}/etc/letsencrypt/renewal-hooks/deploy/${NC}"
+    echo -e "自动续订钩子:     ${YELLOW}/etc/letsencrypt/renewal-hooks/deploy/copy_certs.sh${NC}"
     
     echo -e "\n${BLUE}=== 各域名证书原始路径 (Live) ===${NC}"
     if [ -d "$LIVE_DIR" ]; then
@@ -109,22 +148,29 @@ view_paths() {
                 echo -e "  └─ 私钥路径: $LIVE_DIR/$DOMAIN/privkey.pem"
             done
         fi
+    else
+        echo "未发现证书目录。"
     fi
 
-    echo -e "\n${BLUE}=== Mac 下载命令参考 ===${NC}"
-    echo -e "${GREEN}scp -r root@$(curl -s ifconfig.me):$DOWNLOAD_DIR/ ~/Desktop/${NC}"
+    echo -e "\n${BLUE}=== Mac/本地终端下载命令 ===${NC}"
+    # 尝试获取公网 IP，如果失败则显示占位符
+    SERVER_IP=$(curl -s --connect-timeout 5 ifconfig.me || echo "您的服务器IP")
+    echo -e "${GREEN}scp -r root@${SERVER_IP}:${DOWNLOAD_DIR}/ ~/Desktop/${NC}"
 }
 
 # 主菜单
 while true; do
-    echo -e "\n${YELLOW}=== Let's Encrypt 证书管理面板 ===${NC}"
-    echo "1) 完整环境搭建 (首次运行)"
+    echo -e "\n${YELLOW}========================================${NC}"
+    echo -e "${YELLOW}      Let's Encrypt 证书管理面板        ${NC}"
+    echo -e "${YELLOW}========================================${NC}"
+    echo "1) 完整环境搭建 (首次运行必选)"
     echo "2) 增加域名证书 (申请新域名)"
     echo "3) 删除域名证书"
-    echo "4) 手动同步证书到下载文件夹"
+    echo "4) 手动同步证书 (立即提取文件)"
     echo "5) 查看当前证书状态 (有效期)"
-    echo "6) 查看相关文件路径 (及下载命令)"
+    echo "6) 查看文件路径及下载命令"
     echo "q) 退出"
+    echo -e "${YELLOW}----------------------------------------${NC}"
     read -p "请选择操作 [1-6/q]: " choice
 
     case $choice in
@@ -135,6 +181,6 @@ while true; do
         5) certbot certificates ;;
         6) view_paths ;;
         q) exit 0 ;;
-        *) echo -e "${RED}无效选择${NC}" ;;
+        *) echo -e "${RED}无效选择，请输入 1-6 或 q${NC}" ;;
     esac
 done
