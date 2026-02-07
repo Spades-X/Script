@@ -28,40 +28,35 @@ setup_env() {
     echo -e "${GREEN}>>> 正在安装基础环境 (Snapd, Curl, Certbot)...${NC}"
     apt update && apt install -y snapd curl
     
-    # 确保 snap 核心已安装
     snap install core; snap refresh core
     
-    # 安装 Certbot 及其 Cloudflare 插件
     echo -e "${GREEN}>>> 安装 Certbot 官方推荐版本...${NC}"
     snap install --classic certbot
     ln -sf /snap/bin/certbot /usr/bin/certbot
     snap set certbot trust-plugin-with-root=ok
     snap install certbot-dns-cloudflare
     
-    # 配置 Cloudflare 凭证
     mkdir -p /root/.secrets/certbot
     if [ ! -f "$CF_INI" ]; then
-        echo -e "${YELLOW}提示: 您需要 Cloudflare API Token (具有 DNS 编辑权限)${NC}"
-        read -p "请输入您的 Cloudflare API Token: " CF_TOKEN
+        echo -e "${YELLOW}==================================================${NC}"
+        echo -e "${YELLOW} 注意：此脚本仅支持 DNS 解析托管在 Cloudflare 的域名 ${NC}"
+        echo -e "${YELLOW}==================================================${NC}"
+        read -p "请输入您的 Cloudflare API Token (需具备 DNS 编辑权限): " CF_TOKEN
         echo "dns_cloudflare_api_token = $CF_TOKEN" > "$CF_INI"
         chmod 600 "$CF_INI"
     else
         echo -e "${BLUE}检测到已存在的 Cloudflare 凭证，跳过配置。${NC}"
     fi
 
-    # 创建同步脚本 (copy_certs.sh)
-    echo -e "${GREEN}>>> 创建自动同步脚本...${NC}"
+    # 创建同步脚本
     cat << 'EOF' > "$SYNC_SCRIPT"
 #!/bin/bash
-# 证书同步提取脚本
 DEST_BASE="/root/certs_download"
-# 自动扫描所有已申请的域名
 if [ -d "/etc/letsencrypt/live" ]; then
     DOMAINS=$(ls /etc/letsencrypt/live/ | grep -v 'README')
     for DOMAIN in $DOMAINS; do
         TARGET_DIR="$DEST_BASE/$DOMAIN"
         mkdir -p "$TARGET_DIR"
-        # 使用 -L 确保拷贝的是真实文件而非软链接
         cp -L /etc/letsencrypt/live/$DOMAIN/fullchain.pem "$TARGET_DIR/"
         cp -L /etc/letsencrypt/live/$DOMAIN/privkey.pem "$TARGET_DIR/"
     done
@@ -70,8 +65,6 @@ fi
 EOF
     chmod +x "$SYNC_SCRIPT"
     
-    # 挂载自动续订钩子 (Deploy Hook)
-    echo -e "${GREEN}>>> 挂载自动续订钩子...${NC}"
     mkdir -p /etc/letsencrypt/renewal-hooks/deploy
     ln -sf "$SYNC_SCRIPT" /etc/letsencrypt/renewal-hooks/deploy/copy_certs.sh
     
@@ -85,19 +78,28 @@ add_domain() {
         return
     fi
     
+    echo -e "\n${YELLOW}--------------------------------------------------${NC}"
+    echo -e "${YELLOW} 提示：请确保您要申请的域名 DNS 已经托管在 Cloudflare ${NC}"
+    echo -e "${YELLOW}--------------------------------------------------${NC}"
     read -p "请输入要申请的主域名 (例如 lfboy.me): " DOMAIN
+    
+    if [ -z "$DOMAIN" ]; then
+        echo -e "${RED}域名不能为空！${NC}"
+        return
+    fi
+
     echo -e "${GREEN}正在为 $DOMAIN 及其泛域名 (*.$DOMAIN) 申请证书...${NC}"
     
-    # 申请证书
     certbot certonly --dns-cloudflare --dns-cloudflare-credentials "$CF_INI" \
         -d "$DOMAIN" -d "*.$DOMAIN"
     
     if [ $? -eq 0 ]; then
-        # 申请成功后立即同步
         bash "$SYNC_SCRIPT"
         echo -e "${GREEN}域名 $DOMAIN 申请成功！证书已同步至 $DOWNLOAD_DIR/$DOMAIN${NC}"
     else
-        echo -e "${RED}申请失败。请确认：1. Token 权限正确；2. 域名已在 Cloudflare 解析。${NC}"
+        echo -e "${RED}申请失败。请确认：${NC}"
+        echo -e "1. 该域名的 DNS 解析确实在 Cloudflare 上。"
+        echo -e "2. 您提供的 API Token 拥有该域名的 DNS 编辑权限。"
     fi
 }
 
@@ -134,7 +136,6 @@ view_paths() {
     echo -e "Cloudflare 凭证:  ${YELLOW}$CF_INI${NC}"
     echo -e "自动同步脚本:     ${YELLOW}$SYNC_SCRIPT${NC}"
     echo -e "证书下载根目录:   ${YELLOW}$DOWNLOAD_DIR${NC}"
-    echo -e "自动续订钩子:     ${YELLOW}/etc/letsencrypt/renewal-hooks/deploy/copy_certs.sh${NC}"
     
     echo -e "\n${BLUE}=== 各域名证书原始路径 (Live) ===${NC}"
     if [ -d "$LIVE_DIR" ]; then
@@ -148,12 +149,9 @@ view_paths() {
                 echo -e "  └─ 私钥路径: $LIVE_DIR/$DOMAIN/privkey.pem"
             done
         fi
-    else
-        echo "未发现证书目录。"
     fi
 
     echo -e "\n${BLUE}=== Mac/本地终端下载命令 ===${NC}"
-    # 尝试获取公网 IP，如果失败则显示占位符
     SERVER_IP=$(curl -s --connect-timeout 5 ifconfig.me || echo "您的服务器IP")
     echo -e "${GREEN}scp -r root@${SERVER_IP}:${DOWNLOAD_DIR}/ ~/Desktop/${NC}"
 }
